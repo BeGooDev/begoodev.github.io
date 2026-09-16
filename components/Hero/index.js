@@ -1,6 +1,7 @@
 import {useCallback, useEffect, useState} from "react";
 import classNames from "classnames";
 import {slogans} from "../../config";
+import Logo from "../Logo";
 
 
 export default function Hero() {
@@ -19,7 +20,7 @@ export default function Hero() {
     return (
         <div className={classNames("hero is-fullwidth is-medium has-text-white background-transition", newSlogan.class)}>
             <div className="hero-body has-text-centered">
-                <img src="/img/logo_begoodev-white.png"/>
+                <Logo variant="onDark" height={56} />
                 <h4 className="mt-5 is-size-4-desktop">
                     {newSlogan.text}
                 </h4>

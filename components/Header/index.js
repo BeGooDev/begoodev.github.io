@@ -2,6 +2,7 @@ import Link from 'next/link';
 import classNames from "classnames";
 
 import { Component } from 'react';
+import Logo from '../Logo';
 
 
 class Header extends Component {
@@ -37,7 +38,7 @@ class Header extends Component {
             <nav className="navbar is-primary is-fixed-top" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link className="navbar-item is-vcentered" href="/">
-                        <img src="/img/logo_begoodev-white.png" width="200" height="32" />
+                        <Logo variant="onDark" height={22} />
                     </Link>
 
                     <a role="button" className={classNames('navbar-burger', { 'is-active': activeToggleNav })}
