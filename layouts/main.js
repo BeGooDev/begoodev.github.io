@@ -7,7 +7,7 @@ export default function MainLayout(props) {
     return (
         <>
             <Header {...header} />
-            <main id="main_content">{props.children}</main>
+            <main id="main_content" className="pt-16">{props.children}</main>
             <Footer/>
         </>
     )

@@ -78,11 +78,11 @@ const getMaltUrl = () => {
 }
 
 const slogans = [
-    {text: "Développement d'applications de qualité!", class: "color-blueLight"},
-    {text: "Boostez votre équipe avec un lead développeur passionné et engagé.", class: "color-pink"},
-    {text: "Transformez vos idées en réalité, avec un expert du développement.", class: "color-greenWater    "},
-    {text: "Votre imagination est la seule limite. Ensemble, dépassons-la!", class: "color-blueDark"},
-    {text: "L'art du code au service de votre vision.", class: "color-orange"},
+    {text: "Développement d'applications de qualité!", accent: "blue"},
+    {text: "Boostez votre équipe avec un lead développeur passionné et engagé.", accent: "pink"},
+    {text: "Transformez vos idées en réalité, avec un expert du développement.", accent: "green"},
+    {text: "Votre imagination est la seule limite. Ensemble, dépassons-la!", accent: "navy"},
+    {text: "L'art du code au service de votre vision.", accent: "orange"},
 ]
 
 

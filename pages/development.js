@@ -1,12 +1,13 @@
 import Head from "next/head";
 import MainLayout from "../layouts/main";
 import Link from "next/link";
+import SectionHeading from "../components/SectionHeading";
+import skills from "../data/skills";
 
-export default function stackPage() {
-
+export default function StackPage() {
     const propsLayout = {
         header: {
-            nav: {active: 'development'}
+            nav: { active: 'development' }
         }
     }
 
@@ -17,153 +18,64 @@ export default function stackPage() {
                 <meta name="keywords" content="php,java,angular,javascript"/>
             </Head>
             <MainLayout {...propsLayout}>
-                <div className="container is-max-desktop has-text-centered">
-                    <h1 className="is-size-1-desktop">Développement d'application</h1>
-                    <div className="subtitle">Les compétences que j'ai à vous offrir</div>
-                </div>
-                <div className="container is-fullwidth">
-                    <hr/>
-                </div>
-                <div className="container is-max-desktop">
-                    <div className="content">
-                        <section className="section">
-                            <p>
-                                Développeur depuis 2009, j'ai travaillé dans des environnements variés,
-                                le plus souvent dans des équipes de petite taille, où il a toujours fallu s'adapter
-                                en fonction des besoins, développer de nouvelles compétences et apprendre de nouvelles
-                                choses.
-                            </p>
-                            <p>
-                                Mon profil polyvalent et mes capacités d'adaptation me permettent de m'acclimater
-                                l'environnement de travail de votre équipe.
-                                De plus je suis un excellent intermediaire technique pour faciliter les echanges entre
-                                les
-                                différentes spécialitées que composent votre entreprise.
-                            </p>
-                            <div className="columns">
-                                <div
-                                    className="column is-4 is-offset-one-third is-full-mobile has-text-centered-mobile">
-                                    <figure className="image is-square">
-                                        <img src="/svg/undraw_Developer_activity_re_39tg.svg" alt="Mes compétences"/>
-                                    </figure>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section className="section">
-                            <h3 className="is-size-3">
-                                Voici les technologies que je maitrise :
-                            </h3>
-                            <div className="columns is-multiline">
-                                <div className="column is-center">
-                                    <h4 className="title is-size-4">
-                                        Backend
-                                    </h4>
-                                    <hr/>
-                                    <ul>
-                                        <li>Java
-                                            <ul>
-                                                <li>SpringBoot</li>
-                                                <li>Tests
-                                                    <ul>
-                                                        <li>JUnit</li>
-                                                        <li>Mockito</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>PHP
-                                            <ul>
-                                                <li>Laravel</li>
-                                                <li>Tests
-                                                    <ul>
-                                                        <li>PHPUnit</li>
-                                                        <li>Atoum</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Base de données / Moteur de recherche
-                                            <ul>
-                                                <li>PostgreSQL</li>
-                                                <li>MySQL/MariaDB</li>
-                                                <li>ElasticSearch</li>
-                                                <li>MongoDB</li>
-                                                <li>Redis</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Serveur
-                                            <ul>
-                                                <li>Apache</li>
-                                                <li>Nginx</li>
-                                                <li>RabbitMQ</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="column is-one-third-desktop">
-                                    <h4 className="title is-size-4">
-                                        Front-end
-                                    </h4>
-                                    <hr/>
-                                    <ul>
-                                        <li>HTML</li>
-                                        <li>CSS
-                                            <ul>
-                                                <li>Bulma</li>
-                                                <li>Bootstrap</li>
-                                                <li>Materialize</li>
-                                            </ul>
-                                        </li>
-                                        <li>Javascript
-                                            <ul>
-                                                <li>Angular</li>
-                                                <li>ReactJS</li>
-                                                <li>JQuery</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <h4 className="title is-size-4">
-                                        Méthodes de travail
-                                    </h4>
-                                    <hr/>
-                                    <ul>
-                                        <li>Git</li>
-                                        <li>Agile
-                                            <ul>
-                                                <li>Scrum</li>
-                                            </ul>
-                                        </li>
-                                        <li>Qualité logiciel
-                                            <ul>
-                                                <li>CI</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <section>
-                            <p>
-                                J'aime apprendre de nouvelles choses, en fonction de vos besoins mais aussi de mes
-                                envies!
-                                Savoir s'adapter à de nouveaux langages, de nouveaux framework ou de nouveaux outils
-                                fait
-                                partie de ma philosophie.
-                                Je n'hésiterai donc pas à enrichir cette liste.
-                            </p>
-                            <div className="buttons is-centered">
-                            <Link href="/contact" title="Contactez-moi">
-                                    <button className="button is-primary">
-                                        Alors contactez-moi!
-                                    </button>
-                            </Link>
-                            </div>
-                        </section>
+                <section className="bg-slate-900 pt-32 pb-16 text-center text-white">
+                    <div className="container-page">
+                        <span className="text-xs font-semibold uppercase tracking-widest text-brand-300">Développement d'applications</span>
+                        <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Les compétences que j'ai à vous offrir</h1>
                     </div>
-                </div>
+                </section>
+
+                <section className="container-page py-16">
+                    <div className="mx-auto grid max-w-4xl items-center gap-10 sm:grid-cols-[1fr_220px]">
+                        <div className="space-y-4 text-base leading-relaxed text-slate-600">
+                            <p>
+                                Développeur depuis 2009, j'ai travaillé dans des environnements variés, le plus souvent
+                                dans des équipes de petite taille, où il a toujours fallu s'adapter en fonction des
+                                besoins, développer de nouvelles compétences et apprendre de nouvelles choses.
+                            </p>
+                            <p>
+                                Mon profil polyvalent et mes capacités d'adaptation me permettent de m'acclimater à
+                                l'environnement de travail de votre équipe. Je suis également un excellent intermédiaire
+                                technique pour faciliter les échanges entre les différentes spécialités qui composent
+                                votre entreprise.
+                            </p>
+                        </div>
+                        <img src="/svg/undraw_Developer_activity_re_39tg.svg" alt="Mes compétences" className="mx-auto h-48 w-48" />
+                    </div>
+                </section>
+
+                <section className="bg-slate-50 py-16">
+                    <div className="container-page">
+                        <SectionHeading eyebrow="Stack technique" title="Voici les technologies que je maîtrise" />
+                        <div className="mt-14 grid gap-6 sm:grid-cols-3">
+                            {skills.map((group) => (
+                                <div key={group.category} className="rounded-2xl bg-white p-6 shadow-sm shadow-slate-100">
+                                    <h3 className="text-lg font-semibold text-slate-900">{group.category}</h3>
+                                    <hr className="my-4 border-slate-100" />
+                                    <ul className="space-y-2 text-sm text-slate-600">
+                                        {group.items.map((item) => (
+                                            <li key={item} className="flex items-start gap-2">
+                                                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-400" />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className="container-page py-16 text-center">
+                    <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600">
+                        J'aime apprendre de nouvelles choses, en fonction de vos besoins mais aussi de mes envies&nbsp;!
+                        Savoir s'adapter à de nouveaux langages, de nouveaux frameworks ou de nouveaux outils fait partie
+                        de ma philosophie. Je n'hésiterai donc pas à enrichir cette liste.
+                    </p>
+                    <Link href="/#contact" title="Contactez-moi" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                        Alors, contactez-moi&nbsp;!
+                    </Link>
+                </section>
             </MainLayout>
         </>
     );
