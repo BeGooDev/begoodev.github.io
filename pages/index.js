@@ -2,6 +2,9 @@ import MainLayout from "../layouts/main";
 import Link from "next/link";
 import Head from "next/head";
 import Hero from '../components/Hero'
+import SectionHeading from '../components/SectionHeading'
+import Projects from '../components/Projects'
+import Testimonials from '../components/Testimonials'
 
 export default function Home() {
     return (
@@ -10,97 +13,103 @@ export default function Home() {
                 <title>BeGooDev, Développeur d'applications web et mobiles sur Rennes</title>
             </Head>
             <MainLayout>
-                <Hero></Hero>
+                <Hero />
 
-                <div className="container is-max-desktop has-text-centered">
-
-
-                    <h1 className="is-size-1">
-                        Développeur freelance
-                    </h1>
-                    <div className="subtitle">
-                        Réalisation de vos applications web et mobiles sur le bassin Rennais
-                    </div>
-                </div>
-
-                <div className="container is-max-desktop">
-                    <hr />
-                </div>
-
-                <div className="container is-max-desktop p-5">
-                    <div className="columns is-multiline is-mobile">
-                        <div className="column is-4-desktop is-full-mobile">
-                            <figure className="image">
-                                <img className="has-ratio is-rounded" width="580" height="580" src="/img/photo-profil.jpg"
-                                     alt="Philippe Gibert Développeur Freelance"/>
-                            </figure>
-                        </div>
-                        <div className="column">
-                            <p>
+                <section className="container-page py-20">
+                    <div className="grid items-center gap-12 md:grid-cols-[minmax(0,320px)_1fr]">
+                        <img
+                            className="mx-auto h-64 w-64 rounded-3xl object-cover shadow-xl shadow-slate-200 md:h-80 md:w-80"
+                            width="580" height="580"
+                            src="/img/photo-profil.jpg"
+                            alt="Philippe Gibert, développeur freelance"
+                        />
+                        <div>
+                            <span className="text-xs font-semibold uppercase tracking-widest text-brand-600">À propos</span>
+                            <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Développeur freelance depuis plus de 13 ans</h2>
+                            <p className="mt-5 text-base leading-relaxed text-slate-600">
                                 Je suis développeur web depuis plus de 13 ans, spécialisé dans les applications complexes à
-                                fortes charges et applications mobiles de qualité.
+                                fortes charges et les applications mobiles de qualité.
                             </p>
-                            <p className="my-5">
-                                Je suis très polyvalent! Je suis capable de maitriser votre projet dans son ensemble :
-                                depuis l'analyse de votre besoin, la mise en place de l'architecture applicative,
-                                l'optimisation, les tests, le développement, etc... Je porte une grande
-                                attention à la
-                                qualité du
-                                code et au suivi de vos projets.
+                            <p className="mt-4 text-base leading-relaxed text-slate-600">
+                                Je suis très polyvalent&nbsp;! Je suis capable de prendre en charge votre projet dans son
+                                ensemble&nbsp;: de l'analyse de votre besoin à la mise en place de l'architecture applicative,
+                                en passant par l'optimisation, les tests et le développement. Je porte une grande attention
+                                à la qualité du code et au suivi de vos projets.
                             </p>
-                            <div className="pt-5">
-                                <div className="buttons pt-4 is-centered">
-                                    <Link href="/contact">
-                                        <button className="button is-primary">Prendre contact</button>
-                                    </Link>
-                                </div>
+                            <Link href="/contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                                Prendre contact
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="bg-slate-50 py-20">
+                    <div className="container-page">
+                        <SectionHeading
+                            eyebrow="Ce que je peux faire pour vous"
+                            title="Mes compétences"
+                        />
+                        <div className="mt-14 grid gap-8 sm:grid-cols-3">
+                            <div className="text-center">
+                                <img src="/svg/undraw_Web_developer_re_h7ie.svg" alt="" className="mx-auto h-32 w-32" />
+                                <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                                    Je prends en charge le développement de votre application web et mobile en veillant à
+                                    concevoir une architecture solide et à soigner la qualité du code.
+                                </p>
+                            </div>
+                            <div className="text-center">
+                                <img src="/svg/undraw_Code_thinking_re_gka2.svg" alt="" className="mx-auto h-32 w-32" />
+                                <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                                    Votre application est lente&nbsp;? J'analyse votre code et vous conseille sur les bonnes
+                                    pratiques pour booster vos projets&nbsp;!
+                                </p>
+                            </div>
+                            <div className="text-center">
+                                <img src="/svg/undraw_Mobile_apps_re_3wjf.svg" alt="" className="mx-auto h-32 w-32" />
+                                <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                                    Besoin d'un conseil sur les choix technologiques ou sur les outils à mettre en place
+                                    pour un développement de qualité&nbsp;? Je suis là&nbsp;!
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div className="container is-max-desktop p-5">
-                    <h2 className="is-size-2 has-text-centered">
-                        Mes compétences
-                    </h2>
-                    <div className="columns is-mobile is-multiline">
-                        <div className="column is-one-third-desktop is-full-mobile has-text-centered-mobile">
-                            <figure className="image is-square">
-                                <img src="/svg/undraw_Web_developer_re_h7ie.svg" alt="Mes compétences"/>
-                            </figure>
-                            <p className="px-2">
-                                Je prends en charge le développement de votre application web et mobile en veillant à
-                                concevoir une architecture solide et en prenant soin de la qualité du code.
-                            </p>
-                        </div>
-                        <div className="column is-one-third-desktop is-full-mobile has-text-centered-mobile">
-                            <figure className="image is-square">
-
-                                <img src="/svg/undraw_Code_thinking_re_gka2.svg" alt="boostez vos projets" />
-                            </figure>
-                            <p className="px-2">
-                                Votre application est lente?
-                                J'analyse votre code et vous conseille sur les bonnes pratiques pour booster vos projets!
-                            </p>
-                        </div>
-                        <div className="column is-one-third-desktop is-full-mobile has-text-centered-mobile">
-                            <figure className="image is-square">
-
-                                <img src="/svg/undraw_Mobile_apps_re_3wjf.svg" alt="Besoin d'un conseil?"/>
-                            </figure>
-                            <p className="px-2">
-                                Besoin d'un conseil pour les choix technologiques de vos projets, sur les outils à mettre en
-                                place pour faire du développement de qualité?
-                                Je suis là!
-                            </p>
+                        <div className="mt-12 text-center">
+                            <Link href="/development" className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white">
+                                Découvrez ma stack
+                            </Link>
                         </div>
                     </div>
-                    <div className="buttons is-centered">
-                        <Link href="/development"><button className="button">Découvrez ma stack!</button></Link>
+                </section>
+
+                <section className="container-page py-20">
+                    <SectionHeading
+                        eyebrow="Exemples de missions"
+                        title="Le type de projets que j'aime mener"
+                        subtitle="Quelques exemples représentatifs des missions que je peux prendre en charge — à personnaliser avec tes propres réalisations."
+                    />
+                    <div className="mt-14">
+                        <Projects />
                     </div>
-                </div>
+                </section>
+
+                <section className="bg-slate-50 py-20">
+                    <div className="container-page">
+                        <SectionHeading eyebrow="Retours" title="Ce qu'on dit de mon travail" />
+                        <div className="mt-14">
+                            <Testimonials />
+                        </div>
+                    </div>
+                </section>
+
+                <section className="container-page py-20 text-center">
+                    <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">Un projet en tête&nbsp;?</h2>
+                    <p className="mx-auto mt-4 max-w-xl text-base text-slate-600">
+                        Discutons-en&nbsp; je suis disponible pour vous accompagner sur votre prochaine application.
+                    </p>
+                    <Link href="/contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-200 transition-colors hover:bg-brand-600">
+                        Prendre contact
+                    </Link>
+                </section>
             </MainLayout>
         </>
-
     )
 }
