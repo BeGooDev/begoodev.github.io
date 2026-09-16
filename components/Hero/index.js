@@ -47,7 +47,7 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                    <Link href="/contact" className="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition-colors hover:bg-brand-400">
+                    <Link href="/#contact" className="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition-colors hover:bg-brand-400">
                         Prendre contact
                     </Link>
                     <Link href="/development" className="rounded-full border border-white/20 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">

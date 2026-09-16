@@ -41,7 +41,7 @@ export default function MonCvPage() {
                         <p className="mx-auto mt-3 max-w-xl text-slate-600">
                             Je suis disponible pour échanger sur votre projet et voir comment je peux vous accompagner.
                         </p>
-                        <Link href="/contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                        <Link href="/#contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
                             Me contacter
                         </Link>
                     </div>

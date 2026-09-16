@@ -6,7 +6,6 @@ import Logo from '../Logo';
 const navLinks = [
     { href: '/development', label: 'Développement', key: 'development' },
     { href: '/mon-cv', label: 'Mon parcours', key: 'mon-cv' },
-    { href: '/contact', label: 'Contact', key: 'contact' },
 ];
 
 export default function Header({ nav = {} }) {
@@ -35,7 +34,7 @@ export default function Header({ nav = {} }) {
                         </Link>
                     ))}
                     <Link
-                        href="/contact"
+                        href="/#contact"
                         className="ml-2 rounded-full bg-brand-500 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600"
                     >
                         Me contacter
@@ -71,7 +70,7 @@ export default function Header({ nav = {} }) {
                         </Link>
                     ))}
                     <Link
-                        href="/contact"
+                        href="/#contact"
                         onClick={() => setOpen(false)}
                         className="mt-1 rounded-xl bg-brand-500 px-4 py-3 text-center text-sm font-semibold text-white"
                     >

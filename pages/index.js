@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import SectionHeading from '../components/SectionHeading'
 import Projects from '../components/Projects'
 import Testimonials from '../components/Testimonials'
+import Contact from '../components/Contact'
 
 export default function Home() {
     return (
@@ -36,7 +37,7 @@ export default function Home() {
                                 en passant par l'optimisation, les tests et le développement. Je porte une grande attention
                                 à la qualité du code et au suivi de vos projets.
                             </p>
-                            <Link href="/contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                            <Link href="/#contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
                                 Prendre contact
                             </Link>
                         </div>
@@ -100,15 +101,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className="container-page py-20 text-center">
-                    <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">Un projet en tête&nbsp;?</h2>
-                    <p className="mx-auto mt-4 max-w-xl text-base text-slate-600">
-                        Discutons-en&nbsp; je suis disponible pour vous accompagner sur votre prochaine application.
-                    </p>
-                    <Link href="/contact" className="mt-8 inline-flex rounded-full bg-brand-500 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-200 transition-colors hover:bg-brand-600">
-                        Prendre contact
-                    </Link>
-                </section>
+                <Contact />
             </MainLayout>
         </>
     )

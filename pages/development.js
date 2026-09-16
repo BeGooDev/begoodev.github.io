@@ -72,7 +72,7 @@ export default function StackPage() {
                         Savoir s'adapter à de nouveaux langages, de nouveaux frameworks ou de nouveaux outils fait partie
                         de ma philosophie. Je n'hésiterai donc pas à enrichir cette liste.
                     </p>
-                    <Link href="/contact" title="Contactez-moi" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                    <Link href="/#contact" title="Contactez-moi" className="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
                         Alors, contactez-moi&nbsp;!
                     </Link>
                 </section>

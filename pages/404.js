@@ -18,7 +18,7 @@ export default function Page404() {
                             <Link href="/" className="rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
                                 Accueil
                             </Link>
-                            <Link href="/contact" className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50">
+                            <Link href="/#contact" className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50">
                                 Contact
                             </Link>
                         </div>
