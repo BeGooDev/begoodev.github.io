@@ -15,7 +15,8 @@ export default function Header({ nav = {} }) {
         <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
             <nav className="container-page flex h-16 items-center justify-between" aria-label="Navigation principale">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-                    <Logo variant="onLight" height={22} />
+                    <Logo variant="onLight" height={24} compact className="sm:hidden" />
+                    <Logo variant="onLight" height={22} className="hidden sm:inline-block" />
                 </Link>
 
                 <div className="hidden items-center gap-1 md:flex">
