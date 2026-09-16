@@ -38,7 +38,7 @@ export default function Hero() {
                 </span>
 
                 <h1 className="mt-8 max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl">
-                    Philippe Gibert, alias{" "}
+                    Philippe Gibert, dirigeant de{" "}
                     <span className="bg-gradient-to-r from-brand-300 to-accent-blue bg-clip-text text-transparent">BeGooDev</span>
                 </h1>
 
