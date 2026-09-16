@@ -13,7 +13,7 @@ export default function Footer() {
     const email = getEmail();
 
     return (
-        <footer className="mt-24 bg-slate-900 text-slate-300">
+        <footer className="border-t border-white/10 bg-slate-900 text-slate-300">
             <div className="container-page flex flex-col items-center gap-6 py-14 text-center">
                 <Logo variant="onDark" height={22} className="opacity-90" />
 
