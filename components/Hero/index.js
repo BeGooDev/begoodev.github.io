@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { slogans } from "../../config";
+import Logo from "../Logo";
 
 const accentStyles = {
     blue: { blob: "bg-accent-blue", text: "text-accent-blue" },
@@ -37,8 +38,8 @@ export default function Hero() {
                     Développeur freelance · Rennes &amp; alentours
                 </span>
 
-                <h1 className="mt-8 max-w-3xl text-5xl font-bold leading-tight sm:text-6xl">
-                    <span className="bg-gradient-to-r from-brand-300 to-accent-blue bg-clip-text text-transparent">BeGooDev</span>
+                <h1 className="mt-8">
+                    <Logo variant="onDark" height={64} />
                 </h1>
 
                 <p key={slogan.text} className={`mt-6 max-w-2xl text-lg font-medium transition-colors duration-700 sm:text-xl ${accent.text}`}>

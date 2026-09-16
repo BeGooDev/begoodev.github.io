@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#0B0E11"/>
+  <text x="256" y="366" text-anchor="middle" font-family="'Space Grotesk', 'Poppins', system-ui, sans-serif" font-weight="700" font-size="320" fill="#F2F5F7">b</text>
+  <rect x="181" y="382" width="150" height="38" rx="19" fill="#22C55E"/>
+</svg>

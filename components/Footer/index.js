@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo, getTwitterUrl } from "../../config";
+import Logo from '../Logo';
 
 const socials = [
     { href: (email) => `mailto:${email}`, icon: 'fa-envelope', label: 'Email', useEmail: true },
@@ -14,7 +15,7 @@ export default function Footer() {
     return (
         <footer className="mt-24 bg-slate-900 text-slate-300">
             <div className="container-page flex flex-col items-center gap-6 py-14 text-center">
-                <img src="/img/logo_begoodev-white.png" alt="BeGooDev" className="h-7 w-auto opacity-90" />
+                <Logo variant="onDark" height={22} className="opacity-90" />
 
                 <div className="flex items-center gap-3">
                     {socials.map((s) => (
