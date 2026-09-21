@@ -1,5 +1,4 @@
 // Repris de https://github.com/giboow/giboow.github.io (components/pages/about) sur demande de Philippe.
-// La date de fin chez Ekolis / début de l'activité freelance BeGooDev reste à confirmer.
 const experience = [
     {
         year: "2003 – 2009",
@@ -26,13 +25,13 @@ const experience = [
         description: "Développement de la plateforme d'analyse d'audience YouTube Wizdeo (CakePHP, MySQL, MongoDB, ElasticSearch) et d'applications mobiles iOS/Android (Ionic2, Angular2), en méthode Scrum.",
     },
     {
-        year: "Depuis 2018",
+        year: "2018 – 2021",
         title: "Développeur Full-Stack",
         place: "Ekolis — Rennes",
         description: "Développement backend/frontend de la plateforme de suivi de flotte Ekolis (Java, Angular, PostgreSQL, RabbitMQ) et d'une application Android native (Java/Kotlin).",
     },
     {
-        year: "Aujourd'hui",
+        year: "Depuis 2021",
         title: "Développeur freelance — BeGooDev",
         place: "Bassin rennais",
         description: "Accompagnement de clients sur leurs projets web et mobiles, du cadrage à la mise en production.",
