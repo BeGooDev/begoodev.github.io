@@ -2,5 +2,5 @@
  Url : [https://begoodev.fr](https://begoodev.fr)
 
 # Build with ❤️ and amazing UI Frameworks
-- [NextJs](https://nextjs.org)
-- [BulmaCss](https://bulma.io)
+- [Angular](https://angular.dev)
+- [Tailwind CSS](https://tailwindcss.com)

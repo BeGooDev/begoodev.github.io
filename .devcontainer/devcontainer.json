@@ -1,6 +1,6 @@
 {
     "name": "begoodev",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-24",
     "shutdownAction": "none",
     "customizations": {
         "vscode": {
@@ -21,7 +21,7 @@
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
 
     },
-    "forwardPorts": [3000],
+    "forwardPorts": [4200],
     "postCreateCommand": "pnpm i",
     "postStartCommand": "pnpm dev",
     "mounts": [

@@ -14,7 +14,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22.22.3
 
       - uses: pnpm/action-setup@v3
         name: Install pnpm
@@ -43,4 +43,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: out # The branch the action should deploy to.
-          folder: out # The folder the action should deploy.
+          folder: dist/begoodev/browser # The folder the action should deploy.
