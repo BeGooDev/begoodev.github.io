@@ -1,0 +1,67 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/sora/400.css";
+@import "@fontsource/sora/600.css";
+@import "@fontsource/sora/700.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+
+@import "tailwindcss";
+
+@source "./app/**/*.ts";
+
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+    --font-logo: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+    --color-brand-50: #f3f2ff;
+    --color-brand-100: #e8e6ff;
+    --color-brand-200: #cdc8ff;
+    --color-brand-300: #aca3ff;
+    --color-brand-400: #8a7dff;
+    --color-brand-500: #6c63ff;
+    --color-brand-600: #5548e6;
+    --color-brand-700: #4436c2;
+    --color-brand-800: #372d9c;
+    --color-brand-900: #241d68;
+
+    --color-accent-blue: #5ea5e1;
+    --color-accent-navy: #27356a;
+    --color-accent-pink: #cb1c8e;
+    --color-accent-green: #73b9aa;
+    --color-accent-orange: #e8b12c;
+
+    --color-linkedin: #0a66c2;
+    --color-github: #24292f;
+    --color-twitter: #55acee;
+    --color-malt: #fd5656;
+    --color-mail: #6c63ff;
+    --color-phone: #1fce26;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-white text-slate-700 font-sans antialiased;
+        margin: 0;
+    }
+
+    h1, h2, h3, h4 {
+        @apply font-display text-slate-900;
+    }
+}
+
+@utility container-page {
+    @apply mx-auto w-full max-w-5xl px-6;
+}
+
+@utility bg-grid {
+    background-image: radial-gradient(circle, theme(colors.slate.300) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
