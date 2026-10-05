@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeading } from '../../components/section-heading/section-heading';
 import { skills } from '../../data/skills';
@@ -68,13 +67,6 @@ import { skills } from '../../data/skills';
         </section>
     `,
 })
-export class Development implements OnInit {
+export class Development {
     skills = skills;
-    private titleService = inject(Title);
-    private meta = inject(Meta);
-
-    ngOnInit() {
-        this.titleService.setTitle('BeGooDev - Mes compétences en développement');
-        this.meta.updateTag({ name: 'keywords', content: 'php,java,angular,javascript' });
-    }
 }

@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Hero } from '../../components/hero/hero';
 import { SectionHeading } from '../../components/section-heading/section-heading';
@@ -93,10 +92,4 @@ import { Contact } from '../../components/contact/contact';
         <app-contact />
     `,
 })
-export class Home implements OnInit {
-    private titleService = inject(Title);
-
-    ngOnInit() {
-        this.titleService.setTitle("BeGooDev, Développeur d'applications web et mobiles sur Rennes");
-    }
-}
+export class Home {}

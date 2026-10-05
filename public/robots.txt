@@ -1,3 +1,7 @@
+# Tous les robots sont autorisés, y compris ceux des moteurs de recherche IA
+# (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot…)
+# et ceux qui entraînent les modèles (GPTBot, ClaudeBot, Google-Extended…).
+# Un résumé du site pour les IA est disponible sur https://begoodev.fr/llms.txt
 User-agent: *
 Allow: /
 

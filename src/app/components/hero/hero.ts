@@ -16,7 +16,8 @@ import { Logo } from '../logo/logo';
                 </span>
 
                 <h1 class="mt-8">
-                    <app-logo variant="onDark" [height]="64" />
+                    <app-logo variant="onDark" [height]="64" aria-hidden="true" />
+                    <span class="sr-only">BeGooDev, lead développeur freelance à Rennes</span>
                 </h1>
 
                 <p class="mt-6 max-w-2xl text-lg font-medium text-slate-300 sm:text-xl">

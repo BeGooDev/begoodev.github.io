@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeading } from '../../components/section-heading/section-heading';
 import { Timeline } from '../../components/timeline/timeline';
@@ -55,16 +54,11 @@ import { Timeline } from '../../components/timeline/timeline';
         </section>
     `,
 })
-export class MonCv implements OnInit {
+export class MonCv {
     facts = [
         { icon: 'fa-code', value: '15+ ans', label: "d'expérience en développement" },
         { icon: 'fa-graduation-cap', value: 'Ingénieur', label: 'diplômé de l\'ENIB' },
         { icon: 'fa-rocket', value: '2021', label: 'création de BeGooDev' },
         { icon: 'fa-users', value: 'Lead dev', label: "sur un projet de l'État" },
     ];
-    private titleService = inject(Title);
-
-    ngOnInit() {
-        this.titleService.setTitle('BeGooDev - Mon parcours');
-    }
 }

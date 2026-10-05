@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -23,10 +22,4 @@ import { RouterLink } from '@angular/router';
         </section>
     `,
 })
-export class NotFound implements OnInit {
-    private titleService = inject(Title);
-
-    ngOnInit() {
-        this.titleService.setTitle('404 Page Not Found');
-    }
-}
+export class NotFound {}
