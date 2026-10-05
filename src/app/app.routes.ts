@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Development } from './pages/development/development';
 import { MonCv } from './pages/mon-cv/mon-cv';
 import { NotFound } from './pages/not-found/not-found';
+import { Legal } from './pages/legal/legal';
 import { SeoRouteData } from './seo';
 
 export const routes: Routes = [
@@ -33,6 +34,15 @@ export const routes: Routes = [
             description:
                 "Ingénieur ENIB, développeur depuis 2009, freelance depuis 2021 et lead développeur sur un projet numérique de l'État : mon parcours en détail.",
             pageType: 'ProfilePage',
+        } satisfies SeoRouteData,
+    },
+    {
+        path: 'mentions-legales',
+        component: Legal,
+        title: 'Mentions légales – BeGooDev',
+        data: {
+            description:
+                "Mentions légales du site BeGooDev : éditeur, hébergement, données personnelles (aucun cookie) et propriété intellectuelle.",
         } satisfies SeoRouteData,
     },
     { path: 'contact', redirectTo: () => inject(Router).createUrlTree(['/'], { fragment: 'contact' }) },

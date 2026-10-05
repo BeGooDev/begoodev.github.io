@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo, getTwitterUrl } from '../../config';
 import { Logo } from '../logo/logo';
 
@@ -11,7 +12,7 @@ interface Social {
 
 @Component({
     selector: 'app-footer',
-    imports: [Logo],
+    imports: [Logo, RouterLink],
     template: `
         <footer class="border-t border-white/10 bg-slate-900 text-slate-300">
             <div class="container-page flex flex-col items-center gap-6 py-14 text-center">
@@ -41,7 +42,10 @@ interface Social {
                         Illustrations :
                         <a href="https://undraw.co" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">undraw.co</a>
                     </p>
-                    <p class="mt-4 text-xs text-slate-400">© {{ year }} BeGooDev — Philippe Gibert</p>
+                    <p class="mt-4 text-xs text-slate-400">
+                        © {{ year }} BeGooDev — Philippe Gibert ·
+                        <a routerLink="/mentions-legales" class="inline-block py-1 underline decoration-slate-600 underline-offset-4 hover:text-white">Mentions légales</a>
+                    </p>
                 </div>
             </div>
         </footer>

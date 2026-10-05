@@ -1,7 +1,7 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
-import { appConfig, getEmail, getGithubUrl, getLinkedInUrl, getMaltUrl, getTwitterUrl } from './config';
+import { appConfig, company, getEmail, getGithubUrl, getLinkedInUrl, getMaltUrl, getTwitterUrl } from './config';
 import { skills } from './data/skills';
 
 export const SITE_URL = 'https://begoodev.fr';
@@ -41,6 +41,9 @@ const business = {
     '@type': 'ProfessionalService',
     '@id': BUSINESS_ID,
     name: SITE_NAME,
+    legalName: `${company.name} ${company.legalForm}`,
+    taxID: company.siren.replace(/\s/g, ''),
+    vatID: company.vatNumber,
     url: SITE_URL,
     logo: `${SITE_URL}/android-chrome-512x512.png`,
     image: OG_IMAGE,
@@ -52,7 +55,9 @@ const business = {
     founder: { '@id': PERSON_ID },
     address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Rennes',
+        streetAddress: '11 allée Madame de Sévigné',
+        postalCode: '35470',
+        addressLocality: 'Bain-de-Bretagne',
         addressRegion: 'Bretagne',
         addressCountry: 'FR',
     },

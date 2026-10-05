@@ -5,7 +5,7 @@ const baseUrl = "https://begoodev.fr";
 const outputDir = path.join(__dirname, "dist", "begoodev", "browser");
 const today = new Date().toISOString().slice(0, 10);
 
-const routes = ["/", "/development", "/mon-cv"];
+const routes = ["/", "/development", "/mon-cv", "/mentions-legales"];
 
 const urls = routes
     .map(
