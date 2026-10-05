@@ -1,0 +1,48 @@
+import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/test';
+import { pages } from './pages';
+
+const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'];
+
+for (const path of [...pages, '/page-inexistante']) {
+    test(`${path} n'a aucune violation axe (WCAG 2.2 AA)`, async ({ page }) => {
+        await page.goto(path);
+        const results = await new AxeBuilder({ page })
+            .withTags(WCAG_TAGS)
+            // Logotypes are exempt from contrast requirements (WCAG 1.4.3)
+            .exclude('app-logo')
+            .analyze();
+
+        const summary = results.violations.map((v) => `${v.id} (${v.impact}) : ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`);
+        expect(summary).toEqual([]);
+    });
+}
+
+test('le lien d\'évitement mène au contenu principal', async ({ page }) => {
+    await page.goto('/');
+    await page.keyboard.press('Tab');
+    const skipLink = page.getByRole('link', { name: 'Aller au contenu' });
+    await expect(skipLink).toBeFocused();
+    await expect(skipLink).toBeInViewport();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#main_content')).toBeFocused();
+});
+
+test('le menu mobile n\'est atteignable au clavier qu\'une fois ouvert', async ({ page, isMobile }) => {
+    test.skip(!isMobile, 'menu mobile uniquement');
+    await page.goto('/');
+    const menuButton = page.getByRole('button', { name: 'Ouvrir le menu' });
+    const menuLink = page.locator('#mobile-menu').getByRole('link', { name: 'Mon parcours' });
+
+    await expect(page.locator('#mobile-menu')).toHaveAttribute('inert');
+    await menuButton.focus();
+    await page.keyboard.press('Tab');
+    await expect(menuLink).not.toBeFocused();
+
+    await menuButton.click();
+    await expect(page.getByRole('button', { name: 'Fermer le menu' })).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#mobile-menu')).not.toHaveAttribute('inert');
+    await expect(menuLink).toBeInViewport();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('#mobile-menu').getByRole('link').first()).toBeFocused();
+});

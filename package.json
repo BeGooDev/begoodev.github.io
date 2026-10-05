@@ -10,7 +10,8 @@
     "build": "ng build",
     "postbuild": "node scripts/postbuild.js",
     "sitemap": "node sitemap.generator.js",
-    "deploy": "rimraf dist && pnpm build && pnpm sitemap && copy README.md ./dist/begoodev/browser"
+    "deploy": "rimraf dist && pnpm build && pnpm sitemap && copy README.md ./dist/begoodev/browser",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@angular/common": "^22.1.0",
@@ -35,12 +36,15 @@
     "@angular/build": "^22.1.8",
     "@angular/cli": "^22.1.8",
     "@angular/compiler-cli": "^22.1.0",
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
     "copy": "^0.3.2",
     "postcss": "^8.5.28",
     "rimraf": "^3.0.2",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2"
   }
