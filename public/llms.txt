@@ -11,14 +11,14 @@
 
 ## Stack technique
 
-- Backend : Java (Spring Boot, JUnit, Mockito), PHP (Laravel, PHPUnit, Atoum), PostgreSQL, MySQL, MariaDB, ElasticSearch, MongoDB, Redis, RabbitMQ, Apache, Nginx.
+- Backend : Java (Spring Boot, JUnit, Mockito), PHP (Laravel, PHPUnit, Atoum), tests de charge avec Gatling, PostgreSQL, MySQL, MariaDB, ElasticSearch, MongoDB, Redis, RabbitMQ, Apache, Nginx.
 - Front-end : HTML/CSS, Tailwind CSS, DSFR (Système de Design de l'État), Angular, React, jQuery, tests E2E avec Playwright.
 - Méthodes et outils : Git, Agile/Scrum, CI/CD (GitLab CI, GitHub Actions), scripts Bash/Zsh, développement assisté par l'IA.
 
 ## Parcours
 
-- Depuis 2022 : lead développeur freelance sur un projet numérique de l'État (choix techniques, développement des points critiques, accompagnement des juniors), avec de forts enjeux d'accessibilité numérique.
-- 2021 : plateforme de contrôle des dépôts de déchets dans les bennes d'une entreprise, à partir des événements remontés par des caméras Hikvision.
+- Depuis 2022 : lead développeur freelance en renfort d'équipe sur un projet numérique de l'État (choix techniques, développement des points critiques, accompagnement des juniors), avec de forts enjeux d'accessibilité numérique. Stack : Angular, Java, DSFR, Playwright, Gatling (tests de charge), Bash.
+- 2021 : plateforme de contrôle des dépôts de déchets dans les bennes d'une entreprise ; les événements envoyés par des caméras Hikvision sont placés dans une file RabbitMQ pour être traités. Conçue et développée seul de bout en bout (Angular, Java, RabbitMQ).
 - 2018 – 2021 : développeur full-stack chez Ekolis (Rennes), suivi de flotte connecté pour les transporteurs (Java, Angular, PostgreSQL, RabbitMQ, Android).
 - 2015 – 2018 : ingénieur R&D chez Wizdeo (Rennes), analyse d'audience YouTube.
 - 2014 – 2015 : développeur full-stack chez StartingPlex / HotAlert (Vannes).

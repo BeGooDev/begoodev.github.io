@@ -80,9 +80,9 @@ import { Contact } from '../../components/contact/contact';
 
         <section class="container-page py-20">
             <app-section-heading
-                eyebrow="Exemples de missions"
-                title="Le type de projets que j'aime mener"
-                subtitle="Quelques exemples représentatifs des missions que je peux prendre en charge — à personnaliser avec tes propres réalisations."
+                eyebrow="Réalisations"
+                title="Quelques missions récentes"
+                subtitle="Des projets concrets, du renfort d'équipe en tant que lead à la conception complète d'une plateforme."
             />
             <div class="mt-14">
                 <app-projects />

@@ -11,6 +11,7 @@ export const skills: SkillGroup[] = [
             "Tests Java (JUnit, Mockito)",
             "PHP (Laravel)",
             "Tests PHP (PHPUnit, Atoum)",
+            "Tests de charge (Gatling)",
             "PostgreSQL / MySQL / MariaDB",
             "ElasticSearch · MongoDB · Redis",
             "Apache · Nginx · RabbitMQ",

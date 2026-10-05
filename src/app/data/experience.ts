@@ -68,14 +68,16 @@ export const experience: ExperienceStep[] = [
             {
                 period: "2021",
                 title: "Plateforme de contrôle des dépôts de déchets",
-                description: "Développement d'une plateforme de contrôle des dépôts de déchets dans les différentes bennes d'une entreprise. Des caméras Hikvision détectent chaque dépôt et remontent les événements à la plateforme, qui les centralise pour permettre le suivi et le contrôle des dépôts.",
+                description: "Développement d'une plateforme de contrôle des dépôts de déchets dans les différentes bennes d'une entreprise, conçue et développée seul de bout en bout. Les caméras Hikvision envoient un événement à chaque dépôt ; la plateforme place tous ces événements dans une file RabbitMQ pour les traiter, puis permet le suivi et le contrôle des dépôts.",
                 icon: "fa-video-camera",
+                stack: ["Angular", "Java", "RabbitMQ", "Hikvision"],
             },
             {
                 period: "Depuis 2022",
                 title: "Lead développeur sur un projet numérique de l'État",
-                description: "Référent technique de l'équipe : aide aux choix d'architecture et de technologies, prise en charge du développement des points critiques de l'application et accompagnement des développeurs juniors au quotidien (revues de code, partage de bonnes pratiques, montée en compétences) pour garantir la qualité et la pérennité du produit. Le projet porte de forts enjeux d'accessibilité numérique, pris en compte dès la conception et le développement.",
+                description: "En renfort d'équipe en tant que référent technique : aide aux choix d'architecture et de technologies, prise en charge du développement des points critiques de l'application et accompagnement des développeurs juniors au quotidien (revues de code, partage de bonnes pratiques, montée en compétences) pour garantir la qualité et la pérennité du produit. Le projet porte de forts enjeux d'accessibilité numérique, pris en compte dès la conception et le développement : interfaces conformes au DSFR, tests E2E avec Playwright, tests de charge avec Gatling et outillage en Bash.",
                 icon: "fa-university",
+                stack: ["Angular", "Java", "DSFR", "Playwright", "Gatling", "Bash"],
             },
         ],
     },
