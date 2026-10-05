@@ -74,7 +74,7 @@ export const experience: ExperienceStep[] = [
             {
                 period: "Depuis 2022",
                 title: "Lead développeur sur un projet numérique de l'État",
-                description: "Référent technique de l'équipe : aide aux choix d'architecture et de technologies, prise en charge du développement des points critiques de l'application et accompagnement des développeurs juniors au quotidien (revues de code, partage de bonnes pratiques, montée en compétences) pour garantir la qualité et la pérennité du produit.",
+                description: "Référent technique de l'équipe : aide aux choix d'architecture et de technologies, prise en charge du développement des points critiques de l'application et accompagnement des développeurs juniors au quotidien (revues de code, partage de bonnes pratiques, montée en compétences) pour garantir la qualité et la pérennité du produit. Le projet porte de forts enjeux d'accessibilité numérique, pris en compte dès la conception et le développement.",
                 icon: "fa-university",
             },
         ],

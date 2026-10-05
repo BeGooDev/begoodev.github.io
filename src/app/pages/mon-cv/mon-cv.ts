@@ -26,7 +26,7 @@ import { Timeline } from '../../components/timeline/timeline';
                             <dd>
                                 <i class="fa {{ fact.icon }} text-brand-300" aria-hidden="true"></i>
                                 <span class="mt-2 block text-2xl font-bold">{{ fact.value }}</span>
-                                <span class="mt-1 block text-xs text-slate-400">{{ fact.label }}</span>
+                                <span class="mt-1 block text-xs text-slate-400" aria-hidden="true">{{ fact.label }}</span>
                             </dd>
                         </div>
                     }
@@ -47,7 +47,7 @@ import { Timeline } from '../../components/timeline/timeline';
                 <p class="mx-auto mt-3 max-w-xl text-slate-600">
                     Je suis disponible pour échanger sur votre projet et voir comment je peux vous accompagner.
                 </p>
-                <a routerLink="/" fragment="contact" class="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                <a routerLink="/" fragment="contact" class="mt-8 inline-flex rounded-full bg-brand-600 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-700">
                     Me contacter
                 </a>
             </div>

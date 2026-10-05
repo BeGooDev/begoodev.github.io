@@ -25,7 +25,7 @@ import { Logo } from '../logo/logo';
                 </p>
 
                 <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-                    <a routerLink="/" fragment="contact" class="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition-colors hover:bg-brand-400">
+                    <a routerLink="/" fragment="contact" class="rounded-full bg-brand-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition-colors hover:bg-brand-700">
                         Prendre contact
                     </a>
                     <a routerLink="/development" class="rounded-full border border-white/20 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">

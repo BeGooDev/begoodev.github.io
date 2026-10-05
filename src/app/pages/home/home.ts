@@ -36,7 +36,7 @@ import { Contact } from '../../components/contact/contact';
                         Au quotidien, je m'appuie aussi sur l'IA pour gagner en efficacité (prototypage, revue de
                         code, tests, documentation), tout en gardant la maîtrise de chaque ligne livrée.
                     </p>
-                    <a routerLink="/" fragment="contact" class="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
+                    <a routerLink="/" fragment="contact" class="mt-8 inline-flex rounded-full bg-brand-600 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-700">
                         Prendre contact
                     </a>
                 </div>

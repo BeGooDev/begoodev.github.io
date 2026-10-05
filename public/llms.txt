@@ -17,7 +17,7 @@
 
 ## Parcours
 
-- Depuis 2022 : lead développeur freelance sur un projet numérique de l'État (choix techniques, développement des points critiques, accompagnement des juniors).
+- Depuis 2022 : lead développeur freelance sur un projet numérique de l'État (choix techniques, développement des points critiques, accompagnement des juniors), avec de forts enjeux d'accessibilité numérique.
 - 2021 : plateforme de contrôle des dépôts de déchets dans les bennes d'une entreprise, à partir des événements remontés par des caméras Hikvision.
 - 2018 – 2021 : développeur full-stack chez Ekolis (Rennes), suivi de flotte connecté pour les transporteurs (Java, Angular, PostgreSQL, RabbitMQ, Android).
 - 2015 – 2018 : ingénieur R&D chez Wizdeo (Rennes), analyse d'audience YouTube.

@@ -31,14 +31,14 @@ interface SecondaryMethod {
                     <a
                         [href]="'mailto:' + email"
                         title="Envoyez-moi un email"
-                        class="flex flex-col items-center gap-3 rounded-2xl bg-brand-500 p-8 text-center text-white shadow-lg shadow-black/20 transition-transform hover:-translate-y-1 sm:flex-row sm:text-left"
+                        class="flex flex-col items-center gap-3 rounded-2xl bg-brand-600 p-8 text-center text-white shadow-lg shadow-black/20 transition-transform hover:-translate-y-1 sm:flex-row sm:text-left"
                     >
                         <span class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-white/15">
                             <i class="fa fa-envelope text-2xl" aria-hidden="true"></i>
                         </span>
                         <span>
                             <span class="block text-lg font-semibold">Email</span>
-                            <span class="block text-sm font-light opacity-90">{{ emailWithSpaces }}</span>
+                            <span class="block text-sm">{{ emailWithSpaces }}</span>
                         </span>
                     </a>
 
@@ -50,8 +50,8 @@ interface SecondaryMethod {
                                         <ng-container [ngTemplateOutlet]="methodContent" [ngTemplateOutletContext]="{ method: method }" />
                                     </div>
                                     <div class="flex flex-shrink-0 flex-col items-end gap-1 text-xs font-semibold">
-                                        <a [href]="method.href" title="Appeler" class="text-brand-300 hover:text-brand-200">Appeler</a>
-                                        <a [href]="method.smsHref" title="Envoyer un SMS" class="text-slate-400 hover:text-slate-200">SMS</a>
+                                        <a [href]="method.href" title="Appeler" class="inline-block py-1 text-brand-300 hover:text-brand-200">Appeler</a>
+                                        <a [href]="method.smsHref" title="Envoyer un SMS" class="inline-block py-1 text-slate-300 hover:text-white">SMS</a>
                                     </div>
                                 </div>
                             } @else {

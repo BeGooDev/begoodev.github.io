@@ -22,7 +22,9 @@ interface Social {
                         <a
                             [href]="s.href"
                             [target]="s.external ? '_blank' : null"
+                            [attr.rel]="s.external ? 'noopener' : null"
                             [title]="s.label"
+                            [attr.aria-label]="s.label"
                             class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-500"
                         >
                             <i class="fa {{ s.icon }} text-lg" aria-hidden="true"></i>
@@ -33,13 +35,13 @@ interface Social {
                 <div class="text-sm text-slate-400">
                     <p>
                         Fait avec <span aria-hidden="true">❤️</span> par
-                        <a [href]="twitterUrl" target="_blank" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">{{ pseudo }}</a>
+                        <a [href]="twitterUrl" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">{{ pseudo }}</a>
                     </p>
                     <p class="mt-1">
                         Illustrations :
-                        <a href="http://undraw.co" target="_blank" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">undraw.co</a>
+                        <a href="https://undraw.co" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">undraw.co</a>
                     </p>
-                    <p class="mt-4 text-xs text-slate-500">© {{ year }} BeGooDev — Philippe Gibert</p>
+                    <p class="mt-4 text-xs text-slate-400">© {{ year }} BeGooDev — Philippe Gibert</p>
                 </div>
             </div>
         </footer>

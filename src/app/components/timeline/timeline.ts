@@ -7,7 +7,7 @@ import { experience } from '../../data/experience';
         <ol class="relative ml-5 border-l border-slate-200 pl-10">
             @for (step of experience; track step.year) {
                 <li class="mb-10 last:mb-0">
-                    <span class="absolute -left-5 flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-brand-500 text-white ring-1 ring-slate-200">
+                    <span class="absolute -left-5 flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-brand-600 text-white ring-1 ring-slate-200">
                         <i class="fa {{ step.icon }}" aria-hidden="true"></i>
                     </span>
                     <span class="text-xs font-semibold uppercase tracking-widest text-brand-600">{{ step.year }}</span>
