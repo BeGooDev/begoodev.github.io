@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo, getTwitterUrl } from '../../config';
+import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo } from '../../config';
 import { Logo } from '../logo/logo';
 
 interface Social {
@@ -36,7 +36,9 @@ interface Social {
                 <div class="text-sm text-slate-400">
                     <p>
                         Fait avec <span aria-hidden="true">❤️</span> par
-                        <a [href]="twitterUrl" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">{{ pseudo }}</a>
+                        <a [href]="githubUrl" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">{{ pseudo }}</a>
+                        et
+                        <a href="https://claude.com/claude-code" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">Claude IA</a>
                     </p>
                     <p class="mt-1">
                         Illustrations :
@@ -53,13 +55,12 @@ interface Social {
 })
 export class Footer {
     pseudo = getPseudo();
-    twitterUrl = getTwitterUrl();
+    githubUrl = getGithubUrl();
     year = new Date().getFullYear();
 
     socials: Social[] = [
         { href: `mailto:${getEmail()}`, icon: 'fa-envelope', label: 'Email', external: false },
         { href: getLinkedInUrl(), icon: 'fa-linkedin', label: 'LinkedIn', external: true },
         { href: getGithubUrl(), icon: 'fa-github', label: 'GitHub', external: true },
-        { href: getTwitterUrl(), icon: 'fa-twitter', label: 'Twitter', external: true },
     ];
 }

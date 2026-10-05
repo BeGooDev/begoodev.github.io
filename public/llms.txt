@@ -1,6 +1,6 @@
 # BeGooDev
 
-> BeGooDev est l'entreprise de Philippe Gibert, lead développeur freelance basé près de Rennes (Bretagne, France). Ingénieur informatique diplômé de l'ENIB, développeur depuis 2009 et freelance depuis 2021, il conçoit, audite et fait évoluer des applications web et mobiles, en renfort ou en lead d'équipe.
+> BeGooDev est l'entreprise de Philippe Gibert, lead développeur freelance basé près de Rennes (Bretagne, France). Ingénieur informatique diplômé de l'ENIB, développeur depuis 2009 et freelance depuis 2021, il conçoit, audite et fait évoluer des applications web et mobiles, seul ou en tant que lead technique au sein d'une équipe.
 
 ## Services
 

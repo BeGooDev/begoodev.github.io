@@ -1,7 +1,7 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
-import { appConfig, company, getEmail, getGithubUrl, getLinkedInUrl, getMaltUrl, getTwitterUrl } from './config';
+import { appConfig, company, getEmail, getGithubUrl, getLinkedInUrl, getMaltUrl } from './config';
 import { skills } from './data/skills';
 
 export const SITE_URL = 'https://begoodev.fr';
@@ -34,7 +34,7 @@ const person = {
         name: "École Nationale d'Ingénieurs de Brest (ENIB)",
     },
     knowsAbout: skills.flatMap((group) => group.items),
-    sameAs: [getLinkedInUrl(), getGithubUrl(), getMaltUrl(), getTwitterUrl()],
+    sameAs: [getLinkedInUrl(), getGithubUrl(), getMaltUrl()],
 };
 
 const business = {

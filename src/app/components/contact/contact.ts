@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneNum, getTwitterDirectMessageUrl, getTwitterUser } from '../../config';
+import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneNum } from '../../config';
 
 interface SecondaryMethod {
     label: string;
@@ -42,7 +42,7 @@ interface SecondaryMethod {
                         </span>
                     </a>
 
-                    <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="grid gap-4 sm:grid-cols-3">
                         @for (method of secondaryMethods; track method.label) {
                             @if (method.smsHref) {
                                 <div class="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-5">
@@ -97,14 +97,6 @@ export class Contact {
             value: getPhoneNum(),
             href: `tel:${getPhoneNum()}`,
             smsHref: `sms:${getPhoneNum()}`,
-        },
-        {
-            label: 'Twitter',
-            icon: 'fa-twitter',
-            badge: 'bg-twitter/10 text-twitter',
-            value: getTwitterUser(),
-            href: getTwitterDirectMessageUrl(),
-            external: true,
         },
         {
             label: 'LinkedIn',
