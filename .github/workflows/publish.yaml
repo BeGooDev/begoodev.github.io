@@ -1,45 +1,51 @@
 name: Publish to https://begoodev.fr
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
+
+# Never cancel a deployment halfway; queue the next one instead
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
           node-version: 22.22.3
-
-      - uses: pnpm/action-setup@v3
-        name: Install pnpm
-        with:
-          run_install: false
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Install dependencies
+      - name: Build
         run: pnpm run deploy
 
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      # Same checks as the PR CI: nothing gets published if accessibility or SEO regress
+      - name: Tests e2e (axe WCAG 2.2 AA, clavier, SEO)
+        run: pnpm test:e2e
+
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        # Skipped when the workflow is replayed locally with nektos/act
+        if: ${{ !env.ACT }}
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: out # The branch the action should deploy to.
-          folder: dist/begoodev/browser # The folder the action should deploy.
+          branch: out
+          folder: dist/begoodev/browser

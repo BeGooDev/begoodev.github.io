@@ -24,5 +24,6 @@ export default defineConfig({
         command: `serve dist/begoodev/browser --listen ${PORT} --no-port-switching`,
         url: `http://localhost:${PORT}`,
         reuseExistingServer: !process.env['CI'],
+        env: { NO_UPDATE_CHECK: '1' },
     },
 });
