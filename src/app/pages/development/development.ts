@@ -11,7 +11,7 @@ import { skills } from '../../data/skills';
         <section class="bg-slate-900 pt-32 pb-16 text-center text-white">
             <div class="container-page">
                 <span class="text-xs font-semibold uppercase tracking-widest text-brand-300">Développement d'applications</span>
-                <h1 class="mt-2 text-4xl font-bold sm:text-5xl">Les compétences que j'ai à vous offrir</h1>
+                <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Les compétences que j'ai à vous offrir</h1>
             </div>
         </section>
 

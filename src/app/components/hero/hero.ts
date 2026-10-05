@@ -1,15 +1,6 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Slogan, slogans } from '../../config';
 import { Logo } from '../logo/logo';
-
-const accentStyles: Record<string, { blob: string; text: string }> = {
-    blue: { blob: 'bg-accent-blue', text: 'text-accent-blue' },
-    navy: { blob: 'bg-accent-navy', text: 'text-accent-navy' },
-    pink: { blob: 'bg-accent-pink', text: 'text-accent-pink' },
-    green: { blob: 'bg-accent-green', text: 'text-accent-green' },
-    orange: { blob: 'bg-accent-orange', text: 'text-accent-orange' },
-};
 
 @Component({
     selector: 'app-hero',
@@ -17,7 +8,7 @@ const accentStyles: Record<string, { blob: string; text: string }> = {
     template: `
         <section class="relative overflow-hidden bg-slate-900 pt-32 pb-24 text-white">
             <div class="pointer-events-none absolute inset-0 bg-grid opacity-[0.07]"></div>
-            <div class="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full opacity-20 blur-3xl transition-colors duration-1000 {{ accent().blob }}"></div>
+            <div class="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-500 opacity-20 blur-3xl"></div>
 
             <div class="container-page relative flex flex-col items-center text-center">
                 <span class="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-slate-300">
@@ -28,8 +19,8 @@ const accentStyles: Record<string, { blob: string; text: string }> = {
                     <app-logo variant="onDark" [height]="64" />
                 </h1>
 
-                <p class="mt-6 max-w-2xl text-lg font-medium transition-colors duration-700 sm:text-xl {{ accent().text }}">
-                    {{ slogan().text }}
+                <p class="mt-6 max-w-2xl text-lg font-medium text-slate-300 sm:text-xl">
+                    Plus de 15 ans d'expérience pour concevoir, fiabiliser et faire évoluer vos applications web, en renfort ou en lead de votre équipe.
                 </p>
 
                 <div class="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -44,22 +35,4 @@ const accentStyles: Record<string, { blob: string; text: string }> = {
         </section>
     `,
 })
-export class Hero implements OnInit, OnDestroy {
-    slogan = signal<Slogan>(slogans[0]);
-    private intervalId?: ReturnType<typeof setInterval>;
-
-    accent() {
-        return accentStyles[this.slogan().accent];
-    }
-
-    ngOnInit() {
-        this.intervalId = setInterval(() => {
-            const others = slogans.filter((s) => s !== this.slogan());
-            this.slogan.set(others[Math.floor(Math.random() * others.length)]);
-        }, 5000);
-    }
-
-    ngOnDestroy() {
-        clearInterval(this.intervalId);
-    }
-}
+export class Hero {}

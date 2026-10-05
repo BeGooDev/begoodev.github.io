@@ -20,10 +20,11 @@ export const skills: SkillGroup[] = [
         category: "Front-end",
         items: [
             "HTML / CSS",
-            "Bulma · Bootstrap · Materialize",
+            "Tailwind CSS / DSFR",
             "Angular",
             "ReactJS",
             "JQuery",
+            "Tests E2E (Playwright)",
         ],
     },
     {
@@ -31,7 +32,9 @@ export const skills: SkillGroup[] = [
         items: [
             "Git",
             "Agile / Scrum",
-            "Qualité logicielle & CI",
+            "Qualité logicielle",
+            "CI/CD (GitLab CI, GitHub Actions)",
+            "Scripts Bash / Zsh",
         ],
     },
 ];

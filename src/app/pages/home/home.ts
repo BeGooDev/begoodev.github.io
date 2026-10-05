@@ -4,12 +4,11 @@ import { RouterLink } from '@angular/router';
 import { Hero } from '../../components/hero/hero';
 import { SectionHeading } from '../../components/section-heading/section-heading';
 import { Projects } from '../../components/projects/projects';
-import { Testimonials } from '../../components/testimonials/testimonials';
 import { Contact } from '../../components/contact/contact';
 
 @Component({
     selector: 'app-home',
-    imports: [RouterLink, Hero, SectionHeading, Projects, Testimonials, Contact],
+    imports: [RouterLink, Hero, SectionHeading, Projects, Contact],
     template: `
         <app-hero />
 
@@ -23,9 +22,9 @@ import { Contact } from '../../components/contact/contact';
                 />
                 <div>
                     <span class="text-xs font-semibold uppercase tracking-widest text-brand-600">À propos</span>
-                    <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Développeur freelance depuis plus de 13 ans</h2>
+                    <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Développeur depuis plus de 15 ans</h2>
                     <p class="mt-5 text-base leading-relaxed text-slate-600">
-                        Je suis développeur web depuis plus de 13 ans, spécialisé dans les applications complexes à
+                        Je suis développeur web depuis plus de 15 ans, spécialisé dans les applications complexes à
                         fortes charges et les applications mobiles de qualité.
                     </p>
                     <p class="mt-4 text-base leading-relaxed text-slate-600">
@@ -33,6 +32,10 @@ import { Contact } from '../../components/contact/contact';
                         ensemble&nbsp;: de l'analyse de votre besoin à la mise en place de l'architecture applicative,
                         en passant par l'optimisation, les tests et le développement. Je porte une grande attention
                         à la qualité du code et au suivi de vos projets.
+                    </p>
+                    <p class="mt-4 text-base leading-relaxed text-slate-600">
+                        Au quotidien, je m'appuie aussi sur l'IA pour gagner en efficacité (prototypage, revue de
+                        code, tests, documentation), tout en gardant la maîtrise de chaque ligne livrée.
                     </p>
                     <a routerLink="/" fragment="contact" class="mt-8 inline-flex rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-600">
                         Prendre contact
@@ -55,8 +58,9 @@ import { Contact } from '../../components/contact/contact';
                     <div class="text-center">
                         <img src="/svg/undraw_Code_thinking_re_gka2.svg" alt="" class="mx-auto h-32 w-32" />
                         <p class="mt-6 text-sm leading-relaxed text-slate-600">
-                            Votre application est lente&nbsp;? J'analyse votre code et vous conseille sur les bonnes
-                            pratiques pour booster vos projets&nbsp;!
+                            Votre application est lente&nbsp;? J'analyse l'architecture, les requêtes SQL et les
+                            échanges de flux pour identifier les goulets d'étranglement, et je vous conseille sur les
+                            bonnes pratiques pour booster vos projets&nbsp;!
                         </p>
                     </div>
                     <div class="text-center">
@@ -83,15 +87,6 @@ import { Contact } from '../../components/contact/contact';
             />
             <div class="mt-14">
                 <app-projects />
-            </div>
-        </section>
-
-        <section class="bg-slate-50 py-20">
-            <div class="container-page">
-                <app-section-heading eyebrow="Retours" title="Ce qu'on dit de mon travail" />
-                <div class="mt-14">
-                    <app-testimonials />
-                </div>
             </div>
         </section>
 

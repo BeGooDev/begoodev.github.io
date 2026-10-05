@@ -20,7 +20,7 @@ interface SecondaryMethod {
         <section id="contact" class="scroll-mt-20 bg-slate-900 py-20 text-white">
             <div class="container-page text-center">
                 <span class="text-xs font-semibold uppercase tracking-widest text-brand-300">Me contacter</span>
-                <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Un projet en tête&nbsp;?</h2>
+                <h2 class="mt-2 text-3xl font-bold text-white sm:text-4xl">Un projet en tête&nbsp;?</h2>
                 <p class="mx-auto mt-4 max-w-xl text-slate-300">
                     Vous avez de la chance, je suis <span class="font-semibold text-white">disponible&nbsp;!</span>
                 </p>

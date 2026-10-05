@@ -8,14 +8,30 @@ import { Timeline } from '../../components/timeline/timeline';
     selector: 'app-mon-cv',
     imports: [RouterLink, SectionHeading, Timeline],
     template: `
-        <section class="bg-slate-900 pt-32 pb-16 text-center text-white">
-            <div class="container-page">
+        <section class="relative overflow-hidden bg-slate-900 pt-32 pb-16 text-center text-white">
+            <div class="pointer-events-none absolute inset-0 bg-grid opacity-[0.07]"></div>
+            <div class="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-500 opacity-20 blur-3xl"></div>
+
+            <div class="container-page relative">
                 <span class="text-xs font-semibold uppercase tracking-widest text-brand-300">Parcours</span>
-                <h1 class="mt-2 text-4xl font-bold sm:text-5xl">13 ans à faire du développement mon métier</h1>
+                <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Plus de 15 ans à faire du développement mon métier</h1>
                 <p class="mx-auto mt-4 max-w-2xl text-slate-300">
                     De mes débuts en 2009 à mon activité de freelance aujourd'hui, un parcours guidé par la
                     curiosité technique et le goût du travail bien fait.
                 </p>
+
+                <dl class="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+                    @for (fact of facts; track fact.label) {
+                        <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 backdrop-blur-sm">
+                            <dt class="sr-only">{{ fact.label }}</dt>
+                            <dd>
+                                <i class="fa {{ fact.icon }} text-brand-300" aria-hidden="true"></i>
+                                <span class="mt-2 block text-2xl font-bold">{{ fact.value }}</span>
+                                <span class="mt-1 block text-xs text-slate-400">{{ fact.label }}</span>
+                            </dd>
+                        </div>
+                    }
+                </dl>
             </div>
         </section>
 
@@ -40,6 +56,12 @@ import { Timeline } from '../../components/timeline/timeline';
     `,
 })
 export class MonCv implements OnInit {
+    facts = [
+        { icon: 'fa-code', value: '15+ ans', label: "d'expérience en développement" },
+        { icon: 'fa-graduation-cap', value: 'Ingénieur', label: 'diplômé de l\'ENIB' },
+        { icon: 'fa-rocket', value: '2021', label: 'création de BeGooDev' },
+        { icon: 'fa-users', value: 'Lead dev', label: "sur un projet de l'État" },
+    ];
     private titleService = inject(Title);
 
     ngOnInit() {
