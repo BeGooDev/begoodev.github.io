@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { Icon } from '../icon/icon';
 import { IconName } from '../icon/icons';
-import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneNum } from '../../config';
+import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneNum, getWhatsAppUrl } from '../../config';
 
 interface SecondaryMethod {
     label: string;
@@ -24,7 +24,7 @@ interface SecondaryMethod {
                 <span class="text-xs font-semibold uppercase tracking-widest text-brand-300">Me contacter</span>
                 <h2 class="mt-2 text-3xl font-bold text-white sm:text-4xl">Un projet en tête&nbsp;?</h2>
                 <p class="mx-auto mt-4 max-w-xl text-slate-300">
-                    Vous avez de la chance, je suis <span class="font-semibold text-white">disponible&nbsp;!</span>
+                    Actuellement en mission à temps plein, je reste à l'écoute de vos projets&nbsp;: parlons-en pour préparer une future collaboration.
                 </p>
             </div>
 
@@ -44,17 +44,11 @@ interface SecondaryMethod {
                         </span>
                     </a>
 
-                    <div class="grid gap-4 sm:grid-cols-3">
+                    <div class="grid gap-4 sm:grid-cols-2">
                         @for (method of secondaryMethods; track method.label) {
                             @if (method.smsHref) {
-                                <div class="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <div class="flex items-center gap-4">
-                                        <ng-container [ngTemplateOutlet]="methodContent" [ngTemplateOutletContext]="{ method: method }" />
-                                    </div>
-                                    <div class="flex flex-shrink-0 flex-col items-end gap-1 text-xs font-semibold">
-                                        <a [href]="method.href" title="Appeler" class="inline-block py-1 text-brand-300 hover:text-brand-200">Appeler</a>
-                                        <a [href]="method.smsHref" title="Envoyer un SMS" class="inline-block py-1 text-slate-300 hover:text-white">SMS</a>
-                                    </div>
+                                <div class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5">
+                                    <ng-container [ngTemplateOutlet]="methodContent" [ngTemplateOutletContext]="{ method: method }" />
                                 </div>
                             } @else {
                                 <a
@@ -80,9 +74,15 @@ interface SecondaryMethod {
                     <app-icon [name]="method.icon" class="text-xl" />
                 }
             </span>
-            <span>
+            <span class="min-w-0">
                 <span class="block text-base font-semibold text-white">{{ method.label }}</span>
                 <span class="block text-sm text-slate-400">{{ method.value }}</span>
+                @if (method.smsHref) {
+                    <span class="mt-1 flex gap-4 text-sm font-semibold">
+                        <a [href]="method.href" class="inline-block py-1 text-brand-300 hover:text-brand-200">Appeler</a>
+                        <a [href]="method.smsHref" class="inline-block py-1 text-slate-300 hover:text-white">Envoyer un SMS</a>
+                    </span>
+                }
             </span>
         </ng-template>
     `,
@@ -99,6 +99,14 @@ export class Contact {
             value: getPhoneNum(),
             href: `tel:${getPhoneNum()}`,
             smsHref: `sms:${getPhoneNum()}`,
+        },
+        {
+            label: 'WhatsApp',
+            icon: 'whatsapp',
+            badge: 'bg-whatsapp/10 text-whatsapp',
+            value: 'Écrivez-moi',
+            href: getWhatsAppUrl(),
+            external: true,
         },
         {
             label: 'LinkedIn',

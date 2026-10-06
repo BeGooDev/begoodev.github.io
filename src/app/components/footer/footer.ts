@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo } from '../../config';
+import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo, getWhatsAppUrl } from '../../config';
 import { Logo } from '../logo/logo';
 import { Icon } from '../icon/icon';
 import { IconName } from '../icon/icons';
@@ -62,6 +62,7 @@ export class Footer {
 
     socials: Social[] = [
         { href: `mailto:${getEmail()}`, icon: 'envelope', label: 'Email', external: false },
+        { href: getWhatsAppUrl(), icon: 'whatsapp', label: 'WhatsApp', external: true },
         { href: getLinkedInUrl(), icon: 'linkedin', label: 'LinkedIn', external: true },
         { href: getGithubUrl(), icon: 'github', label: 'GitHub', external: true },
     ];

@@ -47,7 +47,7 @@ import { IconName } from '../../components/icon/icons';
             <div class="container-page">
                 <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">Envie d'en discuter&nbsp;?</h2>
                 <p class="mx-auto mt-3 max-w-xl text-slate-600">
-                    Je suis disponible pour échanger sur votre projet et voir comment je peux vous accompagner.
+                    Je suis toujours partant pour échanger sur votre projet et voir comment je pourrais vous accompagner.
                 </p>
                 <a routerLink="/" fragment="contact" class="mt-8 inline-flex rounded-full bg-brand-600 px-7 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-700">
                     Me contacter

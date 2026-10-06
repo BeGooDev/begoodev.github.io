@@ -15,6 +15,8 @@ export const getGithubUrl = () => "https://github.com/" + appConfig.githubUser;
 
 export const getPhoneNum = () => appConfig.phoneNumber;
 
+export const getWhatsAppUrl = () => "https://wa.me/" + appConfig.phoneNumber.replace(/\D/g, '');
+
 export const getEmail = () => appConfig.email;
 
 export const getEmailWithSpaces = () => appConfig.email.replace('@', ' @ ');
