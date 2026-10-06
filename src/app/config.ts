@@ -15,6 +15,9 @@ export const getGithubUrl = () => "https://github.com/" + appConfig.githubUser;
 
 export const getPhoneNum = () => appConfig.phoneNumber;
 
+/** Phone number without spaces, for tel: and sms: links (RFC 3966) */
+export const getPhoneHref = () => appConfig.phoneNumber.replace(/\s/g, '');
+
 export const getWhatsAppUrl = () => "https://wa.me/" + appConfig.phoneNumber.replace(/\D/g, '');
 
 export const getEmail = () => appConfig.email;

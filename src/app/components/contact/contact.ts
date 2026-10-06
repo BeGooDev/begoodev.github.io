@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { Icon } from '../icon/icon';
 import { IconName } from '../icon/icons';
-import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneNum, getWhatsAppUrl } from '../../config';
+import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneHref, getPhoneNum, getWhatsAppUrl } from '../../config';
 
 interface SecondaryMethod {
     label: string;
@@ -97,8 +97,8 @@ export class Contact {
             icon: 'phone',
             badge: 'bg-phone/10 text-phone',
             value: getPhoneNum(),
-            href: `tel:${getPhoneNum()}`,
-            smsHref: `sms:${getPhoneNum()}`,
+            href: `tel:${getPhoneHref()}`,
+            smsHref: `sms:${getPhoneHref()}`,
         },
         {
             label: 'WhatsApp',

@@ -29,7 +29,7 @@ import { skills } from '../../data/skills';
                         votre entreprise.
                     </p>
                 </div>
-                <img src="/svg/undraw_Developer_activity_re_39tg.svg" alt="Mes compétences" class="mx-auto h-48 w-48" />
+                <img src="/svg/undraw_Developer_activity_re_39tg.svg" alt="" class="mx-auto h-48 w-48" />
             </div>
         </section>
 

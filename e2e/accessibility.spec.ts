@@ -18,14 +18,24 @@ for (const path of [...pages, '/page-inexistante']) {
     });
 }
 
-test('le lien d\'évitement mène au contenu principal', async ({ page }) => {
-    await page.goto('/');
-    await page.keyboard.press('Tab');
-    const skipLink = page.getByRole('link', { name: 'Aller au contenu' });
-    await expect(skipLink).toBeFocused();
-    await expect(skipLink).toBeInViewport();
-    await page.keyboard.press('Enter');
-    await expect(page.locator('#main_content')).toBeFocused();
+for (const path of ['/', '/mon-cv']) {
+    test(`le lien d'évitement mène au contenu principal de ${path}`, async ({ page }) => {
+        await page.goto(path);
+        await page.keyboard.press('Tab');
+        const skipLink = page.getByRole('link', { name: 'Aller au contenu' });
+        await expect(skipLink).toBeFocused();
+        await expect(skipLink).toBeInViewport();
+        await page.keyboard.press('Enter');
+        await expect(page.locator('#main_content')).toBeFocused();
+        // With <base href="/">, a plain "#main_content" link would navigate to /#main_content
+        expect(new URL(page.url()).pathname).toBe(path);
+    });
+}
+
+test('la navigation annonce la page courante', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'navigation desktop');
+    await page.goto('/mon-cv');
+    await expect(page.locator('header').getByRole('link', { name: 'Mon parcours' }).first()).toHaveAttribute('aria-current', 'page');
 });
 
 test('le menu mobile n\'est atteignable au clavier qu\'une fois ouvert', async ({ page, isMobile }) => {

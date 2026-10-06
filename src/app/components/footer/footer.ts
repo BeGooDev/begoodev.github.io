@@ -43,7 +43,7 @@ interface Social {
                         <a href="https://claude.com/claude-code" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">Claude IA</a>
                     </p>
                     <p class="mt-1">
-                        Illustrations :
+                        Illustrations&nbsp;:
                         <a href="https://undraw.co" target="_blank" rel="noopener" class="text-slate-200 underline decoration-slate-600 underline-offset-4 hover:text-white">undraw.co</a>
                     </p>
                     <p class="mt-4 text-xs text-slate-400">

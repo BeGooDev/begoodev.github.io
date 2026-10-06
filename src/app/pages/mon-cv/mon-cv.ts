@@ -58,7 +58,7 @@ import { IconName } from '../../components/icon/icons';
 })
 export class MonCv {
     facts: { icon: IconName; value: string; label: string }[] = [
-        { icon: 'code', value: '15+ ans', label: "d'expérience en développement" },
+        { icon: 'code', value: '15+ ans', label: "d'expérience en développement" },
         { icon: 'graduation-cap', value: 'Ingénieur', label: 'diplômé de l\'ENIB' },
         { icon: 'rocket', value: '2021', label: 'création de BeGooDev' },
         { icon: 'users', value: 'Lead dev', label: "sur un projet de l'État" },

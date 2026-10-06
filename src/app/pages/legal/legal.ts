@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { company, getEmail, getPhoneNum } from '../../config';
+import { company, getEmail, getPhoneHref, getPhoneNum } from '../../config';
 
 @Component({
     selector: 'app-legal',
@@ -79,5 +79,5 @@ export class Legal {
     company = company;
     email = getEmail();
     phone = getPhoneNum();
-    phoneHref = this.phone.replace(/\s/g, '');
+    phoneHref = getPhoneHref();
 }

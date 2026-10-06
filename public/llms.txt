@@ -29,6 +29,7 @@
 - [Accueil](https://begoodev.fr/): présentation, services et contact
 - [Compétences](https://begoodev.fr/development): stack technique détaillée
 - [Parcours](https://begoodev.fr/mon-cv): expérience professionnelle complète
+- [Mentions légales](https://begoodev.fr/mentions-legales): éditeur (BeGooDev SARL), hébergement, données personnelles
 
 ## Contact
 

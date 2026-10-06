@@ -28,6 +28,7 @@ const navLinks: NavLink[] = [
                         <a
                             [routerLink]="link.href"
                             routerLinkActive="bg-brand-50 text-brand-700"
+                            ariaCurrentWhenActive="page"
                             class="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
                         >
                             {{ link.label }}
@@ -62,6 +63,7 @@ const navLinks: NavLink[] = [
                         <a
                             [routerLink]="link.href"
                             routerLinkActive="bg-brand-50 text-brand-700"
+                            ariaCurrentWhenActive="page"
                             (click)="open.set(false)"
                             class="rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50"
                         >

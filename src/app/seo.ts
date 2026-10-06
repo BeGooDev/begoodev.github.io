@@ -1,7 +1,7 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
-import { appConfig, company, getEmail, getGithubUrl, getLinkedInUrl, getMaltUrl } from './config';
+import { company, getEmail, getPhoneHref, getGithubUrl, getLinkedInUrl, getMaltUrl } from './config';
 import { skills } from './data/skills';
 
 export const SITE_URL = 'https://begoodev.fr';
@@ -50,7 +50,7 @@ const business = {
     description:
         "Développement, audit de performance et accompagnement technique d'applications web et mobiles, par un lead développeur freelance basé près de Rennes.",
     email: getEmail(),
-    telephone: appConfig.phoneNumber.replace(/\s/g, ''),
+    telephone: getPhoneHref(),
     foundingDate: '2021',
     founder: { '@id': PERSON_ID },
     address: {

@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { pages } from './pages';
 
@@ -64,6 +65,14 @@ test.describe('SEO du HTML statique', () => {
         const sitemap = await staticHtml(request, '/sitemap.xml');
         for (const path of pages) {
             expect(sitemap).toContain(`<loc>${SITE_URL}${path}</loc>`);
+        }
+    });
+
+    test('chaque page est un fichier <route>.html (GitHub Pages redirige les dossiers en 301)', () => {
+        const dist = 'dist/begoodev/browser';
+        for (const path of pages.filter((path) => path !== '/')) {
+            expect(existsSync(`${dist}${path}.html`), `${path}.html`).toBe(true);
+            expect(existsSync(`${dist}${path}`), `dossier ${path}/`).toBe(false);
         }
     });
 

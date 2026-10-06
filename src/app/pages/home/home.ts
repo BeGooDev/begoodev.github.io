@@ -86,7 +86,7 @@ import { Contact } from '../../components/contact/contact';
         <section class="container-page py-20">
             <app-section-heading
                 eyebrow="Réalisations"
-                title="Quelques missions récentes"
+                title="Quelques réalisations"
                 subtitle="Des projets concrets, du renfort d'équipe en tant que lead à la conception complète d'une plateforme."
             />
             <div class="mt-14">
