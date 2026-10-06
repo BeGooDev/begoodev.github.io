@@ -1,0 +1,40 @@
+# BeGooDev
+
+> BeGooDev est l'entreprise de Philippe Gibert, lead développeur freelance basé près de Rennes (Bretagne, France). Ingénieur informatique diplômé de l'ENIB, développeur depuis 2009 et freelance depuis 2021, il conçoit, audite et fait évoluer des applications web et mobiles, seul ou en tant que lead technique au sein d'une équipe.
+
+## Services
+
+- Développement d'applications web et mobiles, avec une architecture solide et un code de qualité.
+- Audit de performance : analyse de l'architecture, des requêtes SQL et des échanges de flux pour identifier les goulets d'étranglement.
+- Conseil technique : choix technologiques, outillage, qualité logicielle et CI/CD.
+- Lead technique et accompagnement des développeurs juniors (revues de code, bonnes pratiques).
+
+## Stack technique
+
+- Backend : Java (Spring Boot, JUnit, Mockito), PHP (Laravel, PHPUnit, Atoum), tests de charge avec Gatling, PostgreSQL, MySQL, MariaDB, ElasticSearch, MongoDB, Redis, RabbitMQ, Apache, Nginx.
+- Front-end : HTML/CSS, Tailwind CSS, DSFR (Système de Design de l'État), Angular, React, jQuery, tests E2E avec Playwright.
+- Méthodes et outils : Git, Agile/Scrum, CI/CD (GitLab CI, GitHub Actions), scripts Bash/Zsh, développement assisté par l'IA.
+
+## Parcours
+
+- Depuis 2022 : lead développeur freelance en renfort d'équipe sur un projet numérique de l'État (choix techniques, développement des points critiques, accompagnement des juniors), avec de forts enjeux d'accessibilité numérique. Stack : Angular, Java, DSFR, Playwright, Gatling (tests de charge), Bash.
+- 2021 : plateforme de contrôle des dépôts de déchets dans les bennes d'une entreprise ; les événements envoyés par des caméras Hikvision sont placés dans une file RabbitMQ pour être traités. Conçue et développée seul de bout en bout (Angular, Java, RabbitMQ).
+- 2018 – 2021 : développeur full-stack chez Ekolis (Rennes), suivi de flotte connecté pour les transporteurs (Java, Angular, PostgreSQL, RabbitMQ, Android).
+- 2015 – 2018 : ingénieur R&D chez Wizdeo (Rennes), analyse d'audience YouTube.
+- 2014 – 2015 : développeur full-stack chez StartingPlex / HotAlert (Vannes).
+- 2009 – 2014 : ingénieur R&D chez Advert Stream (Lyon), plateforme publicitaire à fort trafic.
+
+## Pages
+
+- [Accueil](https://begoodev.fr/): présentation, services et contact
+- [Compétences](https://begoodev.fr/development): stack technique détaillée
+- [Parcours](https://begoodev.fr/mon-cv): expérience professionnelle complète
+- [Mentions légales](https://begoodev.fr/mentions-legales): éditeur (BeGooDev SARL), hébergement, données personnelles
+
+## Contact
+
+- Email : contact@begoodev.fr
+- WhatsApp : https://wa.me/33674822191
+- Malt : https://www.malt.fr/profile/philippegibert
+- LinkedIn : https://linkedin.com/in/pgibert
+- GitHub : https://github.com/giboow

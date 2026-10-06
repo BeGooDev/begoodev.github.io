@@ -1,0 +1,11 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+
+# Patched versions of transitive dependencies whose parents haven't updated yet
+# (pnpm audit: GHSA-vc2v-76pw-4v95 via serve, source-map-js DoS via @tailwindcss/node)
+overrides:
+  compression: ^1.8.2
+  source-map-js: ^1.2.2

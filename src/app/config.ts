@@ -1,0 +1,40 @@
+export const appConfig = {
+    pseudo: "GiBoOw",
+    email: "contact@begoodev.fr",
+    githubUser: "giboow",
+    linkdeInUser: "pgibert",
+    phoneNumber: "+33 6 74 82 21 91",
+    maltId: "philippegibert",
+};
+
+export const getPseudo = () => appConfig.pseudo;
+
+export const getLinkedInUrl = () => "https://linkedin.com/in/" + appConfig.linkdeInUser;
+
+export const getGithubUrl = () => "https://github.com/" + appConfig.githubUser;
+
+export const getPhoneNum = () => appConfig.phoneNumber;
+
+/** Phone number without spaces, for tel: and sms: links (RFC 3966) */
+export const getPhoneHref = () => appConfig.phoneNumber.replace(/\s/g, '');
+
+export const getWhatsAppUrl = () => "https://wa.me/" + appConfig.phoneNumber.replace(/\D/g, '');
+
+export const getEmail = () => appConfig.email;
+
+export const getEmailWithSpaces = () => appConfig.email.replace('@', ' @ ');
+
+export const getMaltUrl = () => "https://www.malt.fr/profile/" + appConfig.maltId;
+
+export const company = {
+    name: "BeGooDev",
+    legalForm: "SARL",
+    /** Capital social, e.g. "1 000 €" (obligatoire dans les mentions légales d'une société) */
+    shareCapital: "1 000 €",
+    siren: "903 017 168",
+    siret: "903 017 168 00019",
+    rcs: "RCS Rennes 903 017 168",
+    vatNumber: "FR14903017168",
+    address: "11 allée Madame de Sévigné, 35470 Bain-de-Bretagne, France",
+    manager: "Philippe Gibert",
+};

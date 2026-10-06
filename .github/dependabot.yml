@@ -1,0 +1,21 @@
+# Weekly update PRs, so pinned action SHAs and dependencies don't go stale.
+# Each PR runs the CI (build + accessibility + SEO tests) before it can be merged.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      angular:
+        patterns: ["@angular/*"]
+      dev-dependencies:
+        dependency-type: development
