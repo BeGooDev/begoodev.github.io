@@ -46,3 +46,19 @@ test('le menu mobile n\'est atteignable au clavier qu\'une fois ouvert', async (
     await page.keyboard.press('Tab');
     await expect(page.locator('#mobile-menu').getByRole('link').first()).toBeFocused();
 });
+
+test('« Me contacter » fait défiler jusqu\'au contact même au deuxième clic', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'lien du menu desktop');
+    await page.goto('/');
+    const contactLink = page.locator('header').getByRole('link', { name: 'Me contacter' }).first();
+    const contactSection = page.locator('#contact');
+
+    await contactLink.click();
+    await expect(page).toHaveURL(/#contact$/);
+    await expect(contactSection).toBeInViewport();
+
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(contactSection).not.toBeInViewport();
+    await contactLink.click();
+    await expect(contactSection).toBeInViewport();
+});
