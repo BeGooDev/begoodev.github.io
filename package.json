@@ -24,7 +24,6 @@
     "@fontsource/inter": "^5.2.5",
     "@fontsource/sora": "^5.2.5",
     "@fontsource/space-grotesk": "^5.2.5",
-    "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -38,7 +37,6 @@
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
-    "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
     "copy": "^0.3.2",
     "postcss": "^8.5.28",
