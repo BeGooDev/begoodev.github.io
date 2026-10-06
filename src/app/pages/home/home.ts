@@ -21,6 +21,9 @@ import { Contact } from '../../components/contact/contact';
                         class="relative h-full w-full object-cover"
                         width="640" height="640"
                         src="/img/photo-profil.webp"
+                        srcset="/img/photo-profil-320.webp 320w, /img/photo-profil.webp 640w"
+                        sizes="(min-width: 768px) 320px, 256px"
+                        fetchpriority="high"
                         alt="Philippe Gibert, développeur freelance"
                     />
                 </div>

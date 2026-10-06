@@ -1,7 +1,9 @@
 import { Component, computed, input } from '@angular/core';
 
 const INK: Record<string, string> = { onDark: '#FFFFFF', onLight: '#101418' };
-const ACCENT = '#22C55E';
+// Brand green on dark backgrounds; one shade darker on light ones to reach the 3:1 contrast
+// required for large bold text (#22C55E on white is only 2.27:1)
+const ACCENT: Record<string, string> = { onDark: '#22C55E', onLight: '#16A34A' };
 
 /**
  * BeGooDev wordmark: "be" + "good" (accent) + "ev" + "_" cursor.
@@ -28,7 +30,7 @@ export class Logo {
     height = input(28);
 
     ink = computed(() => INK[this.variant()] ?? INK['onDark']);
-    goodColor = computed(() => (this.accent() ? ACCENT : this.ink()));
+    goodColor = computed(() => (this.accent() ? (ACCENT[this.variant()] ?? ACCENT['onDark']) : this.ink()));
 
     wrapperStyle = computed(() => ({
         'font-family': 'var(--font-logo), sans-serif',

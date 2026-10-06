@@ -9,8 +9,6 @@ for (const path of [...pages, '/page-inexistante']) {
         await page.goto(path);
         const results = await new AxeBuilder({ page })
             .withTags(WCAG_TAGS)
-            // Logotypes are exempt from contrast requirements (WCAG 1.4.3)
-            .exclude('app-logo')
             .analyze();
 
         const summary = results.violations.map((v) => `${v.id} (${v.impact}) : ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`);
