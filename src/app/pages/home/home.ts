@@ -16,7 +16,8 @@ import { Contact } from '../../components/contact/contact';
                 <img
                     class="mx-auto h-64 w-64 rounded-3xl object-cover shadow-xl shadow-slate-200 md:h-80 md:w-80"
                     width="580" height="580"
-                    src="/img/photo-profil.jpg"
+                    src="/img/photo-profil.webp"
+                    loading="lazy"
                     alt="Philippe Gibert, développeur freelance"
                 />
                 <div>

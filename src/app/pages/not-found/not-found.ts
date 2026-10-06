@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
                     </a>
                 </div>
             </div>
-            <img src="/img/404.jpg" alt="" class="w-full max-w-sm rounded-2xl" />
+            <img src="/img/404.webp" alt="" width="768" height="576" class="h-auto w-full max-w-sm rounded-2xl" />
         </section>
     `,
 })
