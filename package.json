@@ -10,7 +10,7 @@
     "build": "ng build",
     "postbuild": "node scripts/postbuild.js",
     "sitemap": "node sitemap.generator.js",
-    "deploy": "rimraf dist && pnpm build && pnpm sitemap && copy README.md ./dist/begoodev/browser",
+    "deploy": "rimraf dist && pnpm build && pnpm sitemap",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -38,7 +38,6 @@
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^20.17.19",
-    "copy": "^0.3.2",
     "postcss": "^8.5.28",
     "rimraf": "^3.0.2",
     "serve": "^14.2.6",
