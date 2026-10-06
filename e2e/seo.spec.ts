@@ -68,6 +68,18 @@ test.describe('SEO du HTML statique', () => {
         }
     });
 
+    test('les favicons déclarés sont servis, dont un multiple de 48 px (exigé par Google)', async ({ request }) => {
+        const html = await staticHtml(request, '/');
+        const icons = [...html.matchAll(/<link rel="icon"[^>]*>/g)].map((m) => ({
+            href: attr(m[0], /href="([^"]*)"/)!,
+            sizes: attr(m[0], /sizes="(\d+)x\d+"/),
+        }));
+        for (const { href } of icons) {
+            expect((await request.get(href)).ok(), href).toBe(true);
+        }
+        expect(icons.some(({ sizes }) => sizes && Number(sizes) % 48 === 0)).toBe(true);
+    });
+
     test('chaque page est un fichier <route>.html (GitHub Pages redirige les dossiers en 301)', () => {
         const dist = 'dist/begoodev/browser';
         for (const path of pages.filter((path) => path !== '/')) {
