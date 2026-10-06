@@ -13,18 +13,22 @@ import { Contact } from '../../components/contact/contact';
 
         <section class="container-page py-20">
             <div class="grid items-center gap-12 md:grid-cols-[minmax(0,320px)_1fr]">
-                <img
-                    class="mx-auto h-64 w-64 rounded-3xl object-cover shadow-xl shadow-slate-200 md:h-80 md:w-80"
-                    width="580" height="580"
-                    src="/img/photo-profil.webp"
-                    loading="lazy"
-                    alt="Philippe Gibert, développeur freelance"
-                />
+                <!-- Cut-out portrait on the same backdrop as the hero (dark, dot grid, brand glow) -->
+                <div class="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-slate-900 shadow-xl shadow-slate-300 md:h-80 md:w-80">
+                    <div class="pointer-events-none absolute inset-0 bg-grid opacity-[0.12]"></div>
+                    <div class="pointer-events-none absolute -top-10 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-brand-500 opacity-40 blur-3xl"></div>
+                    <img
+                        class="relative h-full w-full object-cover"
+                        width="640" height="640"
+                        src="/img/photo-profil.webp"
+                        alt="Philippe Gibert, développeur freelance"
+                    />
+                </div>
                 <div>
                     <span class="text-xs font-semibold uppercase tracking-widest text-brand-600">À propos</span>
-                    <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Développeur depuis plus de 15 ans</h2>
+                    <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Développeur depuis plus de 15&nbsp;ans</h2>
                     <p class="mt-5 text-base leading-relaxed text-slate-600">
-                        Je suis développeur web depuis plus de 15 ans, spécialisé dans les applications complexes à
+                        Je suis développeur web depuis plus de 15&nbsp;ans, spécialisé dans les applications complexes à
                         fortes charges et les applications mobiles de qualité.
                     </p>
                     <p class="mt-4 text-base leading-relaxed text-slate-600">

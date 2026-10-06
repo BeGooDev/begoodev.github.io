@@ -15,7 +15,7 @@ import { IconName } from '../../components/icon/icons';
 
             <div class="container-page relative">
                 <span class="text-xs font-semibold uppercase tracking-widest text-brand-300">Parcours</span>
-                <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Plus de 15 ans à faire du développement mon métier</h1>
+                <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Plus de 15&nbsp;ans à faire du développement mon métier</h1>
                 <p class="mx-auto mt-4 max-w-2xl text-slate-300">
                     De mes débuts en 2009 à mon activité de freelance aujourd'hui, un parcours guidé par la
                     curiosité technique et le goût du travail bien fait.

@@ -21,7 +21,7 @@ import { Logo } from '../logo/logo';
                 </h1>
 
                 <p class="mt-6 max-w-2xl text-lg font-medium text-slate-300 sm:text-xl">
-                    Plus de 15 ans d'expérience pour concevoir, fiabiliser et faire évoluer vos applications web, en renfort ou en lead de votre équipe.
+                    Plus de 15&nbsp;ans d'expérience pour concevoir, fiabiliser et faire évoluer vos applications web, en renfort ou en lead de votre équipe.
                 </p>
 
                 <div class="mt-10 flex flex-col gap-3 sm:flex-row">
