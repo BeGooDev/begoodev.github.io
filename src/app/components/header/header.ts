@@ -19,8 +19,7 @@ const navLinks: NavLink[] = [
         <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
             <nav class="container-page flex h-16 items-center justify-between" aria-label="Navigation principale">
                 <a routerLink="/" class="flex items-center gap-2" aria-label="BeGooDev, accueil" (click)="open.set(false)">
-                    <app-logo variant="onLight" [height]="24" [compact]="true" class="sm:hidden" />
-                    <app-logo variant="onLight" [height]="22" class="hidden sm:inline-block" />
+                    <app-logo variant="onLight" [height]="22" />
                 </a>
 
                 <div class="hidden items-center gap-1 md:flex">
