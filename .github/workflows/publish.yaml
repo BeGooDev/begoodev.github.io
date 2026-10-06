@@ -10,13 +10,12 @@ concurrency:
   group: publish
   cancel-in-progress: false
 
-# Third-party actions are pinned to a commit SHA: this job holds a write token
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  deploy:
-    name: publish
+  build:
+    name: Build et tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -43,10 +42,26 @@ jobs:
       - name: Tests e2e (axe WCAG 2.2 AA, clavier, SEO)
         run: pnpm test:e2e
 
-      - name: Deploy 🚀
+      - name: Upload site
         # Skipped when the workflow is replayed locally with nektos/act
         if: ${{ !env.ACT }}
-        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
+        uses: actions/upload-pages-artifact@v5
         with:
-          branch: out
-          folder: dist/begoodev/browser
+          path: dist/begoodev/browser
+
+  # Deployed with GitHub's official Pages actions (repo setting: Pages > Source > GitHub Actions),
+  # instead of pushing to an `out` branch that triggered GitHub's own pages-build-deployment run
+  deploy:
+    name: publish
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy 🚀
+        id: deployment
+        uses: actions/deploy-pages@v5
