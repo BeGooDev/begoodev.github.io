@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { experience } from '../../data/experience';
+import { Icon } from '../icon/icon';
 
 @Component({
     selector: 'app-timeline',
+    imports: [Icon],
     template: `
         <ol class="relative ml-5 border-l border-slate-200 pl-10">
             @for (step of experience; track step.year) {
                 <li class="mb-10 last:mb-0">
                     <span class="absolute -left-5 flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-brand-600 text-white ring-1 ring-slate-200">
-                        <i class="fa {{ step.icon }}" aria-hidden="true"></i>
+                        <app-icon [name]="step.icon" />
                     </span>
                     <span class="text-xs font-semibold uppercase tracking-widest text-brand-600">{{ step.year }}</span>
                     <h3 class="mt-1 text-lg font-semibold text-slate-900">{{ step.title }}</h3>
@@ -27,7 +29,7 @@ import { experience } from '../../data/experience';
                                 <li class="rounded-xl border border-slate-100 bg-slate-50 p-4">
                                     <div class="flex items-center gap-3">
                                         <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-600">
-                                            <i class="fa {{ mission.icon }}" aria-hidden="true"></i>
+                                            <app-icon [name]="mission.icon" />
                                         </span>
                                         <div>
                                             <span class="text-xs font-semibold uppercase tracking-wide text-brand-600">{{ mission.period }}</span>

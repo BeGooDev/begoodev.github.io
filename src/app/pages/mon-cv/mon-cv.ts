@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeading } from '../../components/section-heading/section-heading';
 import { Timeline } from '../../components/timeline/timeline';
+import { Icon } from '../../components/icon/icon';
+import { IconName } from '../../components/icon/icons';
 
 @Component({
     selector: 'app-mon-cv',
-    imports: [RouterLink, SectionHeading, Timeline],
+    imports: [RouterLink, SectionHeading, Timeline, Icon],
     template: `
         <section class="relative overflow-hidden bg-slate-900 pt-32 pb-16 text-center text-white">
             <div class="pointer-events-none absolute inset-0 bg-grid opacity-[0.07]"></div>
@@ -24,7 +26,7 @@ import { Timeline } from '../../components/timeline/timeline';
                         <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 backdrop-blur-sm">
                             <dt class="sr-only">{{ fact.label }}</dt>
                             <dd>
-                                <i class="fa {{ fact.icon }} text-brand-300" aria-hidden="true"></i>
+                                <app-icon [name]="fact.icon" class="text-brand-300" />
                                 <span class="mt-2 block text-2xl font-bold">{{ fact.value }}</span>
                                 <span class="mt-1 block text-xs text-slate-400" aria-hidden="true">{{ fact.label }}</span>
                             </dd>
@@ -55,10 +57,10 @@ import { Timeline } from '../../components/timeline/timeline';
     `,
 })
 export class MonCv {
-    facts = [
-        { icon: 'fa-code', value: '15+ ans', label: "d'expérience en développement" },
-        { icon: 'fa-graduation-cap', value: 'Ingénieur', label: 'diplômé de l\'ENIB' },
-        { icon: 'fa-rocket', value: '2021', label: 'création de BeGooDev' },
-        { icon: 'fa-users', value: 'Lead dev', label: "sur un projet de l'État" },
+    facts: { icon: IconName; value: string; label: string }[] = [
+        { icon: 'code', value: '15+ ans', label: "d'expérience en développement" },
+        { icon: 'graduation-cap', value: 'Ingénieur', label: 'diplômé de l\'ENIB' },
+        { icon: 'rocket', value: '2021', label: 'création de BeGooDev' },
+        { icon: 'users', value: 'Lead dev', label: "sur un projet de l'État" },
     ];
 }

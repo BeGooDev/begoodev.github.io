@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
+import { Icon } from '../icon/icon';
+import { IconName } from '../icon/icons';
 import { getEmail, getEmailWithSpaces, getLinkedInUrl, getMaltUrl, getPhoneNum } from '../../config';
 
 interface SecondaryMethod {
     label: string;
-    icon?: string;
+    icon?: IconName;
     image?: string;
     badge: string;
     value: string;
@@ -15,7 +17,7 @@ interface SecondaryMethod {
 
 @Component({
     selector: 'app-contact',
-    imports: [NgTemplateOutlet],
+    imports: [NgTemplateOutlet, Icon],
     template: `
         <section id="contact" class="scroll-mt-20 bg-slate-900 py-20 text-white">
             <div class="container-page text-center">
@@ -34,7 +36,7 @@ interface SecondaryMethod {
                         class="flex flex-col items-center gap-3 rounded-2xl bg-brand-600 p-8 text-center text-white shadow-lg shadow-black/20 transition-transform hover:-translate-y-1 sm:flex-row sm:text-left"
                     >
                         <span class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-white/15">
-                            <i class="fa fa-envelope text-2xl" aria-hidden="true"></i>
+                            <app-icon name="envelope" class="text-2xl" />
                         </span>
                         <span>
                             <span class="block text-lg font-semibold">Email</span>
@@ -75,7 +77,7 @@ interface SecondaryMethod {
                 @if (method.image) {
                     <img [src]="method.image" alt="" class="h-6 w-6" />
                 } @else {
-                    <i class="fa {{ method.icon }} text-xl" aria-hidden="true"></i>
+                    <app-icon [name]="method.icon" class="text-xl" />
                 }
             </span>
             <span>
@@ -92,7 +94,7 @@ export class Contact {
     secondaryMethods: SecondaryMethod[] = [
         {
             label: 'Téléphone',
-            icon: 'fa-phone',
+            icon: 'phone',
             badge: 'bg-phone/10 text-phone',
             value: getPhoneNum(),
             href: `tel:${getPhoneNum()}`,
@@ -100,7 +102,7 @@ export class Contact {
         },
         {
             label: 'LinkedIn',
-            icon: 'fa-linkedin',
+            icon: 'linkedin',
             badge: 'bg-linkedin/10 text-linkedin',
             value: 'Connectons-nous',
             href: getLinkedInUrl(),

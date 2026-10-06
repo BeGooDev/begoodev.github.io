@@ -2,17 +2,19 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { getEmail, getGithubUrl, getLinkedInUrl, getPseudo } from '../../config';
 import { Logo } from '../logo/logo';
+import { Icon } from '../icon/icon';
+import { IconName } from '../icon/icons';
 
 interface Social {
     href: string;
-    icon: string;
+    icon: IconName;
     label: string;
     external: boolean;
 }
 
 @Component({
     selector: 'app-footer',
-    imports: [Logo, RouterLink],
+    imports: [Logo, RouterLink, Icon],
     template: `
         <footer class="border-t border-white/10 bg-slate-900 text-slate-300">
             <div class="container-page flex flex-col items-center gap-6 py-14 text-center">
@@ -28,7 +30,7 @@ interface Social {
                             [attr.aria-label]="s.label"
                             class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-500"
                         >
-                            <i class="fa {{ s.icon }} text-lg" aria-hidden="true"></i>
+                            <app-icon [name]="s.icon" class="text-lg" />
                         </a>
                     }
                 </div>
@@ -59,8 +61,8 @@ export class Footer {
     year = new Date().getFullYear();
 
     socials: Social[] = [
-        { href: `mailto:${getEmail()}`, icon: 'fa-envelope', label: 'Email', external: false },
-        { href: getLinkedInUrl(), icon: 'fa-linkedin', label: 'LinkedIn', external: true },
-        { href: getGithubUrl(), icon: 'fa-github', label: 'GitHub', external: true },
+        { href: `mailto:${getEmail()}`, icon: 'envelope', label: 'Email', external: false },
+        { href: getLinkedInUrl(), icon: 'linkedin', label: 'LinkedIn', external: true },
+        { href: getGithubUrl(), icon: 'github', label: 'GitHub', external: true },
     ];
 }

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { projects } from '../../data/projects';
+import { Icon } from '../icon/icon';
 
 @Component({
     selector: 'app-projects',
+    imports: [Icon],
     template: `
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @for (project of projects; track project.title) {
                 <div class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-100 transition-shadow hover:shadow-lg hover:shadow-slate-200">
                     <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 text-2xl text-brand-600">
-                        <i class="fa {{ project.icon }}" aria-hidden="true"></i>
+                        <app-icon [name]="project.icon" />
                     </div>
                     <h3 class="mt-5 text-lg font-semibold text-slate-900">{{ project.title }}</h3>
                     <p class="mt-1 text-sm font-medium text-slate-500">{{ project.context }}</p>

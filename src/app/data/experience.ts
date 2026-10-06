@@ -1,10 +1,12 @@
+import { IconName } from '../components/icon/icons';
+
 export interface ExperienceStep {
     year: string;
     title: string;
     place: string;
     description: string;
-    /** Font Awesome 4 icon class shown on the timeline, e.g. 'fa-briefcase' */
-    icon: string;
+    /** Icon shown on the timeline */
+    icon: IconName;
     stack?: string[];
     missions?: Mission[];
 }
@@ -13,7 +15,7 @@ export interface Mission {
     period: string;
     title: string;
     description: string;
-    icon: string;
+    icon: IconName;
     stack?: string[];
 }
 
@@ -24,14 +26,14 @@ export const experience: ExperienceStep[] = [
         title: "Formation d'ingénieur informatique",
         place: "IUT de Valence puis ENIB, Brest",
         description: "DUT Informatique (option systèmes industriels), Licence Pro Conception et Administration de Systèmes d'Informations, puis diplôme d'ingénieur informatique.",
-        icon: "fa-graduation-cap",
+        icon: "graduation-cap",
     },
     {
         year: "2009 – 2014",
         title: "Ingénieur R&D",
         place: "Advert Stream — Lyon",
         description: "Mise en place de l'architecture de développement (Apache, Subversion, Jenkins, PHPUnit), conception de la nouvelle plateforme publicitaire (PHP, Zend Framework) et de son moteur de diffusion à fort trafic, optimisation MySQL.",
-        icon: "fa-briefcase",
+        icon: "briefcase",
         stack: ["PHP", "Zend Framework", "MySQL", "Apache", "Jenkins", "Subversion"],
     },
     {
@@ -39,7 +41,7 @@ export const experience: ExperienceStep[] = [
         title: "Développeur Full-Stack",
         place: "StartingPlex / HotAlert — Vannes",
         description: "Développement d'API pour des applications Android, iOS et Web (PHP, Laravel, RabbitMQ, MongoDB, AngularJS), architecture de développement à base de containers Docker.",
-        icon: "fa-briefcase",
+        icon: "briefcase",
         stack: ["PHP", "Laravel", "RabbitMQ", "MongoDB", "AngularJS", "Docker"],
     },
     {
@@ -47,7 +49,7 @@ export const experience: ExperienceStep[] = [
         title: "Ingénieur R&D",
         place: "Wizdeo — Rennes",
         description: "Développement de la plateforme d'analyse d'audience YouTube Wizdeo (CakePHP, MySQL, MongoDB, ElasticSearch) et d'applications mobiles iOS/Android (Ionic2, Angular2), en méthode Scrum.",
-        icon: "fa-briefcase",
+        icon: "briefcase",
         stack: ["CakePHP", "MySQL", "MongoDB", "ElasticSearch", "Angular", "Ionic"],
     },
     {
@@ -55,7 +57,7 @@ export const experience: ExperienceStep[] = [
         title: "Développeur Full-Stack",
         place: "Ekolis — Rennes",
         description: "Développement backend/frontend de la plateforme de suivi de flotte Ekolis pour les transporteurs (Java, Angular, PostgreSQL, RabbitMQ) : remontée des données des objets connectés embarqués dans les véhicules (position GPS, pression des pneus, température des groupes frigorifiques). Développement de deux applications Android natives (Java/Kotlin) : l'une pour les clients, l'autre pour les techniciens afin de faciliter l'installation du matériel.",
-        icon: "fa-briefcase",
+        icon: "briefcase",
         stack: ["Java", "Angular", "PostgreSQL", "RabbitMQ", "Android", "Kotlin"],
     },
     {
@@ -63,20 +65,20 @@ export const experience: ExperienceStep[] = [
         title: "Développeur freelance — BeGooDev",
         place: "Bassin rennais",
         description: "Création de BeGooDev pour accompagner les entreprises et les administrations sur leurs projets web, du cadrage technique à la mise en production.",
-        icon: "fa-rocket",
+        icon: "rocket",
         missions: [
             {
                 period: "2021",
                 title: "Plateforme de contrôle des dépôts de déchets",
                 description: "Développement d'une plateforme de contrôle des dépôts de déchets dans les différentes bennes d'une entreprise, conçue et développée seul de bout en bout. Les caméras Hikvision envoient un événement à chaque dépôt ; la plateforme place tous ces événements dans une file RabbitMQ pour les traiter, puis permet le suivi et le contrôle des dépôts.",
-                icon: "fa-video-camera",
+                icon: "video",
                 stack: ["Angular", "Java", "RabbitMQ", "Hikvision"],
             },
             {
                 period: "Depuis 2022",
                 title: "Lead développeur sur un projet numérique de l'État",
                 description: "En renfort d'équipe en tant que référent technique : aide aux choix d'architecture et de technologies, prise en charge du développement des points critiques de l'application et accompagnement des développeurs juniors au quotidien (revues de code, partage de bonnes pratiques, montée en compétences) pour garantir la qualité et la pérennité du produit. Le projet porte de forts enjeux d'accessibilité numérique, pris en compte dès la conception et le développement : interfaces conformes au DSFR, tests E2E avec Playwright, tests de charge avec Gatling et outillage en Bash.",
-                icon: "fa-university",
+                icon: "building-columns",
                 stack: ["Angular", "Java", "DSFR", "Playwright", "Gatling", "Bash"],
             },
         ],

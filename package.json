@@ -25,7 +25,6 @@
     "@fontsource/sora": "^5.2.5",
     "@fontsource/space-grotesk": "^5.2.5",
     "express": "^5.1.0",
-    "font-awesome": "^4.7.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

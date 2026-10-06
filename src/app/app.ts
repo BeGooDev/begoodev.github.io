@@ -7,7 +7,7 @@ import { Footer } from './components/footer/footer';
     selector: 'app-root',
     imports: [RouterOutlet, Header, Footer],
     template: `
-        <!-- Off-screen until focused (not sr-only: Font Awesome 4's unlayered .sr-only overrides Tailwind's focus:not-sr-only) -->
+        <!-- Off-screen until focused -->
         <a href="#main_content" class="fixed top-3 left-3 z-[60] -translate-y-24 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white focus:translate-y-0">
             Aller au contenu
         </a>
