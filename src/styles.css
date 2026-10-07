@@ -61,6 +61,21 @@
     }
 }
 
+/* Terminal cursor on the home logo: blinks a few times then stays solid (WCAG 2.2.2, under 5 s) */
+@keyframes cursor-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@utility animate-cursor-blink {
+    animation: cursor-blink 1s steps(1, end) 4;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
 @utility container-page {
     @apply mx-auto w-full max-w-5xl px-6;
 }
