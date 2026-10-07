@@ -20,6 +20,7 @@ test.describe('<app-header>', () => {
         for (const { name, path } of [
             { name: 'Développement', path: '/development' },
             { name: 'Mon parcours', path: '/mon-cv' },
+            { name: 'Blog', path: '/blog' },
         ]) {
             test(`« ${name} » navigue vers ${path} sans recharger la page et devient la page courante`, async ({ page }) => {
                 await gotoHydrated(page, '/');
@@ -51,7 +52,7 @@ test.describe('<app-header>', () => {
             const closeButton = header.getByRole('button', { name: 'Fermer le menu' });
             await expect(closeButton).toHaveAttribute('aria-expanded', 'true');
             await expect(closeButton).toHaveAttribute('aria-controls', 'mobile-menu');
-            await expect(menu.getByRole('link')).toHaveCount(3);
+            await expect(menu.getByRole('link')).toHaveCount(4);
             await expect(menu.getByRole('link', { name: 'Me contacter' })).toBeVisible();
 
             await closeButton.click();

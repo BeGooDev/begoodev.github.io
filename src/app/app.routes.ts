@@ -1,11 +1,22 @@
 import { inject } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { CanMatchFn, ResolveFn, Router, Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { Development } from './pages/development/development';
 import { MonCv } from './pages/mon-cv/mon-cv';
 import { NotFound } from './pages/not-found/not-found';
 import { Legal } from './pages/legal/legal';
+import { Blog } from './pages/blog/blog';
+import { Article } from './pages/article/article';
+import { Article as ArticleData, findArticle } from './data/articles';
 import { SeoRouteData } from './seo';
+
+const articleExists: CanMatchFn = (_route, segments) => !!findArticle(segments[1]?.path ?? '');
+// articleExists guarantees the article exists when these resolvers run
+const articleOf = (slug: string | null) => findArticle(slug ?? '')!;
+const articleTitle: ResolveFn<string> = (route) => articleOf(route.paramMap.get('slug')).metaTitle;
+const articleData: ResolveFn<ArticleData> = (route) => articleOf(route.paramMap.get('slug'));
+const articleDescription: ResolveFn<string> = (route) => articleOf(route.paramMap.get('slug')).description;
+const articleNoindex: ResolveFn<boolean> = (route) => !!articleOf(route.paramMap.get('slug')).draft;
 
 export const routes: Routes = [
     {
@@ -35,6 +46,24 @@ export const routes: Routes = [
                 "Ingénieur ENIB, développeur depuis 2009, freelance depuis 2021 et lead développeur sur un projet numérique de l'État : mon parcours en détail.",
             pageType: 'ProfilePage',
         } satisfies SeoRouteData,
+    },
+    {
+        path: 'blog',
+        component: Blog,
+        title: 'Blog : réussir un projet, au-delà du code – BeGooDev',
+        data: {
+            description:
+                "Organisation, démos, validation, adoption : des retours d'expérience concrets pour réussir un projet numérique, sans jargon technique.",
+            pageType: 'CollectionPage',
+        } satisfies SeoRouteData,
+    },
+    {
+        path: 'articles/:slug',
+        component: Article,
+        // Unknown slugs fall through to the 404 page
+        canMatch: [articleExists],
+        title: articleTitle,
+        resolve: { article: articleData, description: articleDescription, noindex: articleNoindex },
     },
     {
         path: 'mentions-legales',
