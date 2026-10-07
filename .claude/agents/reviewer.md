@@ -22,7 +22,8 @@ aucun fichier.
 - Contenus (missions, stack, parcours) dans `src/app/data/` ; infos légales dans
   `src/app/config.ts` (`company`).
 - Tests : `pnpm build && pnpm sitemap && pnpm test:e2e` (Playwright + axe-core, desktop et
-  mobile, contrôles SEO du HTML statique). La CI (`.github/workflows/ci.yml`) les lance sur
+  mobile, contrôles SEO du HTML statique, tests par composant dans `e2e/components/`, un fichier
+  par composant, attendant l'hydratation via `gotoHydrated`). La CI (`.github/workflows/ci.yml`) les lance sur
   chaque PR ; `publish.yaml` les relance avant de déployer.
 
 ## Ce que tu vérifies

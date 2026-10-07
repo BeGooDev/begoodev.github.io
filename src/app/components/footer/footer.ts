@@ -24,7 +24,7 @@ interface Social {
                     @for (s of socials; track s.icon) {
                         <a
                             [href]="s.href"
-                            [target]="s.external ? '_blank' : null"
+                            [attr.target]="s.external ? '_blank' : null"
                             [attr.rel]="s.external ? 'noopener' : null"
                             [title]="s.label"
                             [attr.aria-label]="s.label"

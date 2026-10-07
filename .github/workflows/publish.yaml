@@ -39,7 +39,7 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       # Same checks as the PR CI: nothing gets published if accessibility or SEO regress
-      - name: Tests e2e (axe WCAG 2.2 AA, clavier, SEO)
+      - name: Tests e2e (axe WCAG 2.2 AA, clavier, SEO, composants)
         run: pnpm test:e2e
 
       - name: Upload site

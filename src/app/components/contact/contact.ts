@@ -53,7 +53,7 @@ interface SecondaryMethod {
                             } @else {
                                 <a
                                     [href]="method.href"
-                                    [target]="method.external ? '_blank' : null"
+                                    [attr.target]="method.external ? '_blank' : null"
                                     [title]="'Contactez-moi par ' + method.label"
                                     class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
                                 >
