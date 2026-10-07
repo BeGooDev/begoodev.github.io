@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { articles, readingTime, formatDate } from '../../data/articles';
+import { allArticles, articles, readingTime, formatDate } from '../../data/articles';
 
 @Component({
     selector: 'app-blog',
@@ -26,6 +26,9 @@ import { articles, readingTime, formatDate } from '../../data/articles';
                     <li>
                         <article class="relative rounded-2xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-100 transition-shadow hover:shadow-lg hover:shadow-slate-200 sm:p-8">
                             <p class="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                                @if (article.draft) {
+                                    <span class="mr-2 rounded-full bg-amber-100 px-2 py-0.5 text-amber-800">Brouillon</span>
+                                }
                                 {{ article.category }}
                                 <span class="text-slate-400" aria-hidden="true">&nbsp;·&nbsp;</span>
                                 <span class="font-medium normal-case tracking-normal text-slate-500">
@@ -49,7 +52,8 @@ import { articles, readingTime, formatDate } from '../../data/articles';
     `,
 })
 export class Blog {
-    articles = articles;
+    // Drafts are listed only under ng serve, never in the production build
+    articles = isDevMode() ? allArticles : articles;
     readingTime = readingTime;
     formatDate = formatDate;
 }

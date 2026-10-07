@@ -19,7 +19,7 @@ export interface Article {
     content: ArticleBlock[];
     /**
      * Brouillon : la page est générée et consultable par son lien, mais en noindex,
-     * absente de la liste du blog, de « À lire aussi » et du sitemap.
+     * absente de « À lire aussi », du sitemap et de la liste du blog (sauf sous ng serve).
      */
     draft?: boolean;
 }
