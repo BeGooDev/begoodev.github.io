@@ -16,8 +16,8 @@ import { Logo } from '../logo/logo';
                 </span>
 
                 <h1 class="mt-8">
-                    <app-logo variant="onDark" [height]="48" class="sm:hidden" aria-hidden="true" />
-                    <app-logo variant="onDark" [height]="64" class="hidden sm:inline" aria-hidden="true" />
+                    <app-logo variant="onDark" [height]="48" [blink]="true" class="sm:hidden" aria-hidden="true" />
+                    <app-logo variant="onDark" [height]="64" [blink]="true" class="hidden sm:inline" aria-hidden="true" />
                     <span class="sr-only">BeGooDev, lead développeur freelance à Rennes</span>
                 </h1>
 
