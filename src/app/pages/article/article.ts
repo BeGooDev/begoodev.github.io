@@ -14,6 +14,11 @@ import { Article as ArticleData, articles, readingTime, formatDate } from '../..
                     <div class="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-brand-500 opacity-20 blur-3xl"></div>
 
                     <div class="container-page relative max-w-3xl">
+                        @if (article.draft) {
+                            <p class="mb-6 rounded-xl border border-amber-300/40 bg-amber-300/10 px-4 py-3 text-sm text-amber-100">
+                                Brouillon&nbsp;: cet article n'est pas encore publié ni référencé.
+                            </p>
+                        }
                         <nav aria-label="Fil d'Ariane">
                             <a routerLink="/blog" class="inline-block py-1 text-sm text-slate-300 underline decoration-slate-600 underline-offset-4 hover:text-white">← Tous les articles</a>
                         </nav>

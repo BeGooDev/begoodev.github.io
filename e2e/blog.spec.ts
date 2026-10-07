@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { articles } from '../src/app/data/articles';
+import { articles, drafts } from '../src/app/data/articles';
 import { gotoHydrated } from './hydration';
 
 test.describe('blog', () => {
@@ -33,6 +33,20 @@ test.describe('blog', () => {
         await expect(page.getByRole('heading', { level: 1 })).toHaveText(second.title);
         await expect(page).toHaveTitle(second.metaTitle);
     });
+
+    for (const draft of drafts) {
+        test(`le brouillon /articles/${draft.slug} est consultable mais ni indexé ni listé`, async ({ page, request }) => {
+            await gotoHydrated(page, `/articles/${draft.slug}`);
+            await expect(page.getByRole('heading', { level: 1 })).toHaveText(draft.title);
+            await expect(page.getByText('Brouillon')).toBeVisible();
+            await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex');
+            await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+
+            await gotoHydrated(page, '/blog');
+            await expect(page.getByRole('link', { name: draft.title })).toHaveCount(0);
+            expect(await (await request.get('/sitemap.xml')).text()).not.toContain(draft.slug);
+        });
+    }
 
     test('un article inexistant affiche la page 404', async ({ page }) => {
         await page.goto('/articles/article-inexistant');

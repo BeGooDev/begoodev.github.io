@@ -1,11 +1,11 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
-import { articles } from './data/articles';
+import { allArticles } from './data/articles';
 
 export const serverRoutes: ServerRoute[] = [
   {
     path: 'articles/:slug',
     renderMode: RenderMode.Prerender,
-    getPrerenderParams: async () => articles.map(({ slug }) => ({ slug })),
+    getPrerenderParams: async () => allArticles.map(({ slug }) => ({ slug })),
   },
   {
     path: '**',

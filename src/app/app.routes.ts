@@ -16,6 +16,7 @@ const articleOf = (slug: string | null) => findArticle(slug ?? '')!;
 const articleTitle: ResolveFn<string> = (route) => articleOf(route.paramMap.get('slug')).metaTitle;
 const articleData: ResolveFn<ArticleData> = (route) => articleOf(route.paramMap.get('slug'));
 const articleDescription: ResolveFn<string> = (route) => articleOf(route.paramMap.get('slug')).description;
+const articleNoindex: ResolveFn<boolean> = (route) => !!articleOf(route.paramMap.get('slug')).draft;
 
 export const routes: Routes = [
     {
@@ -62,7 +63,7 @@ export const routes: Routes = [
         // Unknown slugs fall through to the 404 page
         canMatch: [articleExists],
         title: articleTitle,
-        resolve: { article: articleData, description: articleDescription },
+        resolve: { article: articleData, description: articleDescription, noindex: articleNoindex },
     },
     {
         path: 'mentions-legales',

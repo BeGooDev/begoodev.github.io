@@ -5,11 +5,16 @@ const baseUrl = "https://begoodev.fr";
 const outputDir = path.join(__dirname, "dist", "begoodev", "browser");
 const today = new Date().toISOString().slice(0, 10);
 
+// Drafts and other noindex pages stay out of the sitemap
+const isNoindex = (route) =>
+    route !== "/" &&
+    fs.readFileSync(path.join(outputDir, `${route}.html`), "utf8").includes('<meta name="robots" content="noindex"');
+
 // Every prerendered page, blog articles included, except redirects
 const redirects = ["/contact"];
 const routes = Object.keys(
     JSON.parse(fs.readFileSync(path.join(outputDir, "..", "prerendered-routes.json"), "utf8")).routes,
-).filter((route) => !redirects.includes(route));
+).filter((route) => !redirects.includes(route) && !isNoindex(route));
 
 const urls = routes
     .map(

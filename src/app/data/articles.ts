@@ -17,6 +17,11 @@ export interface Article {
     /** Date de publication, AAAA-MM-JJ */
     date: string;
     content: ArticleBlock[];
+    /**
+     * Brouillon : la page est générée et consultable par son lien, mais en noindex,
+     * absente de la liste du blog, de « À lire aussi » et du sitemap.
+     */
+    draft?: boolean;
 }
 
 const rawArticles: Article[] = [
@@ -266,8 +271,8 @@ const typo = (text: string) =>
         .replace(/« /g, '« ')
         .replace(/(\d) (min|ans?|minutes|semaines?)\b/g, '$1 $2');
 
-/** Articles du blog, du plus récent au plus ancien. */
-export const articles: Article[] = rawArticles.map((article) => ({
+/** Tous les articles, brouillons compris, du plus récent au plus ancien. */
+export const allArticles: Article[] = rawArticles.map((article) => ({
     ...article,
     title: typo(article.title),
     description: typo(article.description),
@@ -276,7 +281,12 @@ export const articles: Article[] = rawArticles.map((article) => ({
     ),
 }));
 
-export const findArticle = (slug: string) => articles.find((article) => article.slug === slug);
+/** Articles publiés, du plus récent au plus ancien. */
+export const articles = allArticles.filter((article) => !article.draft);
+
+export const drafts = allArticles.filter((article) => article.draft);
+
+export const findArticle = (slug: string) => allArticles.find((article) => article.slug === slug);
 
 /** Temps de lecture estimé, à 200 mots par minute. */
 export const readingTime = (article: Article) => {
