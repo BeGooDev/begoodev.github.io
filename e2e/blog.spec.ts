@@ -29,6 +29,16 @@ test.describe('blog', () => {
         });
     }
 
+    test('le Markdown est converti dans le HTML prérendu (intertitres, listes, encadré)', async ({ request }) => {
+        for (const article of articles) {
+            const html = await (await request.get(`/articles/${article.slug}`)).text();
+            expect(html).toMatch(/<div class="article-content[^"]*"[^>]*>\s*<p>/);
+            expect(html).toContain('<h2>');
+            expect(html).toContain('<blockquote>');
+            expect(html, 'espace insécable avant « : »').toMatch(/(\u00a0|&nbsp;):/);
+        }
+    });
+
     test('« À lire aussi » mène vers un autre article sans recharger la page', async ({ page }) => {
         const [first, second] = articles;
         await gotoHydrated(page, `/articles/${first.slug}`);

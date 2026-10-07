@@ -32,28 +32,8 @@ import { Article as ArticleData, articles, readingTime, formatDate } from '../..
                     </div>
                 </header>
 
-                <div class="container-page max-w-3xl py-16 text-lg leading-relaxed text-slate-700">
-                    @for (block of article.content; track $index) {
-                        @switch (block.type) {
-                            @case ('h2') {
-                                <h2 class="mt-12 mb-4 text-2xl font-bold">{{ block.text }}</h2>
-                            }
-                            @case ('ul') {
-                                <ul class="my-6 list-disc space-y-2 pl-6 marker:text-brand-600">
-                                    @for (item of block.items; track $index) {
-                                        <li>{{ item }}</li>
-                                    }
-                                </ul>
-                            }
-                            @case ('takeaway') {
-                                <p class="my-6 rounded-2xl border-l-4 border-brand-600 bg-brand-50 p-6 font-medium text-slate-900">{{ block.text }}</p>
-                            }
-                            @default {
-                                <p class="my-5">{{ block.text }}</p>
-                            }
-                        }
-                    }
-                </div>
+                <!-- HTML generated at build time from content/articles/*.md (scripts/articles.mjs) -->
+                <div class="article-content container-page max-w-3xl py-16" [innerHTML]="article.html"></div>
             </article>
 
             @if (others().length) {

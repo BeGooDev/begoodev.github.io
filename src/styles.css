@@ -69,3 +69,23 @@
     background-image: radial-gradient(circle, theme(colors.slate.300) 1px, transparent 1px);
     background-size: 24px 24px;
 }
+
+/* Articles du blog : HTML généré depuis le Markdown (content/articles) */
+@utility article-content {
+    @apply text-lg leading-relaxed text-slate-700;
+
+    & > :first-child { @apply mt-0; }
+    & p { @apply my-5; }
+    & h2 { @apply mt-12 mb-4 text-2xl font-bold; }
+    & h3 { @apply mt-8 mb-3 text-xl font-bold; }
+    & ul { @apply my-6 list-disc space-y-2 pl-6 marker:text-brand-600; }
+    & ol { @apply my-6 list-decimal space-y-2 pl-6 marker:text-brand-600; }
+    & a { @apply font-medium text-brand-700 underline underline-offset-4 hover:text-brand-800; }
+    & strong { @apply font-semibold text-slate-900; }
+    & img { @apply my-8 h-auto max-w-full rounded-2xl; }
+    & hr { @apply my-12 border-slate-200; }
+    /* > citation : encadré « À retenir » */
+    & blockquote { @apply my-6 rounded-2xl border-l-4 border-brand-600 bg-brand-50 p-6 font-medium text-slate-900; }
+    & blockquote p { @apply my-0; }
+    & blockquote p + p { @apply mt-3; }
+}
