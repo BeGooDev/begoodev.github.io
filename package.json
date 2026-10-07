@@ -10,6 +10,7 @@
     "build": "ng build",
     "postbuild": "node scripts/postbuild.js",
     "sitemap": "node sitemap.generator.js",
+    "images:articles": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/article-images.mjs",
     "deploy": "rimraf dist && pnpm build && pnpm sitemap",
     "test:e2e": "playwright test"
   },

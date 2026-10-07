@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { articles, drafts } from '../src/app/data/articles';
+import { existsSync } from 'node:fs';
+import { allArticles, articleImage, articleImageSizes, articles, drafts } from '../src/app/data/articles';
 import { gotoHydrated } from './hydration';
 
 test.describe('blog', () => {
@@ -22,6 +23,9 @@ test.describe('blog', () => {
             const graph = JSON.parse(await page.locator('script#structured-data').textContent() ?? '{}')['@graph'];
             const posting = graph.find((node: { '@type': string }) => node['@type'] === 'BlogPosting');
             expect(posting).toMatchObject({ headline: article.title, datePublished: article.date });
+            expect(posting.image).toHaveLength(articleImageSizes.length);
+            await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', `https://begoodev.fr${articleImage(article)}`);
+            await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'max-image-preview:large');
         });
     }
 
@@ -47,6 +51,29 @@ test.describe('blog', () => {
             expect(await (await request.get('/sitemap.xml')).text()).not.toContain(draft.slug);
         });
     }
+
+    test('chaque article a ses images de partage (sinon : pnpm images:articles)', () => {
+        for (const article of allArticles) {
+            for (const { ratio } of articleImageSizes) {
+                expect(existsSync(`public${articleImage(article, ratio)}`), articleImage(article, ratio)).toBe(true);
+            }
+        }
+    });
+
+    test('le sitemap date chaque article de sa publication', async ({ request }) => {
+        const sitemap = await (await request.get('/sitemap.xml')).text();
+        for (const article of articles) {
+            expect(sitemap).toContain(`<loc>https://begoodev.fr/articles/${article.slug}</loc>\n\t\t<lastmod>${article.date}</lastmod>`);
+        }
+    });
+
+    test('revenir d\'un article à l\'accueil remet l\'image de partage du site', async ({ page }) => {
+        await gotoHydrated(page, `/articles/${articles[0].slug}`);
+        await page.locator('app-header').getByRole('link', { name: 'BeGooDev, accueil' }).click();
+        await expect(page).toHaveURL(/\/$/);
+        await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://begoodev.fr/img/og-image.png');
+        await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
+    });
 
     test('llms.txt liste chaque article publié, sans les brouillons', async ({ request }) => {
         const llms = await (await request.get('/llms.txt')).text();
