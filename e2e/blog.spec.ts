@@ -48,6 +48,17 @@ test.describe('blog', () => {
         });
     }
 
+    test('llms.txt liste chaque article publié, sans les brouillons', async ({ request }) => {
+        const llms = await (await request.get('/llms.txt')).text();
+        expect(llms).not.toContain('<!--');
+        for (const article of articles) {
+            expect(llms).toContain(`(https://begoodev.fr/articles/${article.slug}): `);
+        }
+        for (const draft of drafts) {
+            expect(llms).not.toContain(draft.slug);
+        }
+    });
+
     test('un article inexistant affiche la page 404', async ({ page }) => {
         await page.goto('/articles/article-inexistant');
         await expect(page).toHaveTitle(/introuvable/);

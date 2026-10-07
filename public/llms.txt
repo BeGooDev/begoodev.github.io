@@ -34,9 +34,7 @@
 
 ## Articles du blog
 
-- [Une démo chaque semaine plutôt qu'un effet tunnel de six mois](https://begoodev.fr/articles/demo-chaque-semaine): montrer l'avancement chaque semaine pour éviter les mauvaises surprises à la livraison
-- [Une courte vidéo pour faire valider chaque évolution](https://begoodev.fr/articles/valider-chaque-evolution-en-video): faire valider chaque évolution par le client grâce à une vidéo de quelques minutes
-- [Le projet est livré… et personne ne l'utilise](https://begoodev.fr/articles/projet-livre-mais-inutilise): pourquoi un outil n'est pas adopté et comment préparer son arrivée auprès des équipes
+<!-- articles : liste générée au build par scripts/postbuild.js -->
 
 ## Contact
 
