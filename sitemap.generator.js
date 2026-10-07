@@ -5,7 +5,11 @@ const baseUrl = "https://begoodev.fr";
 const outputDir = path.join(__dirname, "dist", "begoodev", "browser");
 const today = new Date().toISOString().slice(0, 10);
 
-const routes = ["/", "/development", "/mon-cv", "/mentions-legales"];
+// Every prerendered page, blog articles included, except redirects
+const redirects = ["/contact"];
+const routes = Object.keys(
+    JSON.parse(fs.readFileSync(path.join(outputDir, "..", "prerendered-routes.json"), "utf8")).routes,
+).filter((route) => !redirects.includes(route));
 
 const urls = routes
     .map(
