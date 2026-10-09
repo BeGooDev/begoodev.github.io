@@ -4,6 +4,7 @@ import { Hero } from '../../components/hero/hero';
 import { SectionHeading } from '../../components/section-heading/section-heading';
 import { Projects } from '../../components/projects/projects';
 import { Contact } from '../../components/contact/contact';
+import { services } from '../../data/prestations';
 
 @Component({
     selector: 'app-home',
@@ -53,32 +54,22 @@ import { Contact } from '../../components/contact/contact';
 
         <section class="bg-slate-50 py-20">
             <div class="container-page">
-                <app-section-heading eyebrow="Ce que je peux faire pour vous" title="Mes compétences" />
+                <app-section-heading eyebrow="Ce que je peux faire pour vous" title="Mes prestations" />
                 <div class="mt-14 grid gap-8 sm:grid-cols-3">
-                    <div class="text-center">
-                        <img src="/svg/undraw_Web_developer_re_h7ie.svg" alt="" class="mx-auto h-32 w-32" />
-                        <p class="mt-6 text-sm leading-relaxed text-slate-600">
-                            Je prends en charge le développement de votre application web et mobile en veillant à
-                            concevoir une architecture solide et à soigner la qualité du code.
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <img src="/svg/undraw_Code_thinking_re_gka2.svg" alt="" class="mx-auto h-32 w-32" />
-                        <p class="mt-6 text-sm leading-relaxed text-slate-600">
-                            Votre application est lente&nbsp;? J'analyse l'architecture, les requêtes SQL et les
-                            échanges de flux pour identifier les goulets d'étranglement, et je vous conseille sur les
-                            bonnes pratiques pour booster vos projets&nbsp;!
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <img src="/svg/undraw_Mobile_apps_re_3wjf.svg" alt="" class="mx-auto h-32 w-32" />
-                        <p class="mt-6 text-sm leading-relaxed text-slate-600">
-                            Besoin d'un conseil sur les choix technologiques ou sur les outils à mettre en place
-                            pour un développement de qualité&nbsp;? Je suis là&nbsp;!
-                        </p>
-                    </div>
+                    @for (service of services; track service.id) {
+                        <div class="text-center">
+                            <img [src]="service.illustration" alt="" width="128" height="128" class="mx-auto h-32 w-32" />
+                            <h3 class="mt-6 text-lg font-semibold text-slate-900">
+                                <a routerLink="/prestations" [fragment]="service.id" class="hover:text-brand-700">{{ service.name }}</a>
+                            </h3>
+                            <p class="mt-3 text-sm leading-relaxed text-slate-600">{{ service.summary }}</p>
+                        </div>
+                    }
                 </div>
-                <div class="mt-12 text-center">
+                <div class="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                    <a routerLink="/prestations" class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-brand-200 transition-colors hover:bg-brand-700">
+                        Découvrir mes prestations
+                    </a>
                     <a routerLink="/development" class="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white">
                         Découvrez ma stack
                     </a>
@@ -100,4 +91,6 @@ import { Contact } from '../../components/contact/contact';
         <app-contact />
     `,
 })
-export class Home {}
+export class Home {
+    services = services;
+}
