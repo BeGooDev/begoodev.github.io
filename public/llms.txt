@@ -2,12 +2,14 @@
 
 > BeGooDev est l'entreprise de Philippe Gibert, lead développeur freelance basé près de Rennes (Bretagne, France). Ingénieur informatique diplômé de l'ENIB, développeur depuis 2009 et freelance depuis 2021, il conçoit, audite et fait évoluer des applications web et mobiles, seul ou en tant que lead technique au sein d'une équipe.
 
-## Services
+## Prestations
 
-- Développement d'applications web et mobiles, avec une architecture solide et un code de qualité.
-- Audit de performance : analyse de l'architecture, des requêtes SQL et des échanges de flux pour identifier les goulets d'étranglement.
-- Conseil technique : choix technologiques, outillage, qualité logicielle et CI/CD.
-- Lead technique et accompagnement des développeurs juniors (revues de code, bonnes pratiques).
+Détail sur https://begoodev.fr/prestations. Zone d'intervention : Rennes, Bretagne, et à distance partout en France. Facturation via BeGooDev SARL ou la plateforme Malt.
+
+- Développement d'applications web et mobiles (Angular, React, Java/Spring Boot, PHP/Laravel), avec une architecture solide et un code testé (JUnit, PHPUnit, Playwright, Gatling).
+- Audit de performance : analyse de l'architecture, des requêtes SQL et des échanges de flux pour identifier les goulets d'étranglement, tests de charge avec Gatling.
+- Lead technique et conseil : choix technologiques, outillage, qualité logicielle et CI/CD, accompagnement des développeurs juniors (revues de code, bonnes pratiques).
+- Disponibilité : actuellement en mission à temps plein, à l'écoute pour de futures collaborations.
 
 ## Stack technique
 
@@ -26,7 +28,8 @@
 
 ## Pages
 
-- [Accueil](https://begoodev.fr/): présentation, services et contact
+- [Accueil](https://begoodev.fr/): présentation, prestations et contact
+- [Prestations](https://begoodev.fr/prestations): développement, audit de performance, lead technique et FAQ
 - [Compétences](https://begoodev.fr/development): stack technique détaillée
 - [Parcours](https://begoodev.fr/mon-cv): expérience professionnelle complète
 - [Mentions légales](https://begoodev.fr/mentions-legales): éditeur (BeGooDev SARL), hébergement, données personnelles

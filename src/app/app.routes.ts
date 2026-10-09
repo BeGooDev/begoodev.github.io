@@ -5,6 +5,8 @@ import { Development } from './pages/development/development';
 import { MonCv } from './pages/mon-cv/mon-cv';
 import { NotFound } from './pages/not-found/not-found';
 import { Legal } from './pages/legal/legal';
+import { Prestations } from './pages/prestations/prestations';
+import { faq } from './data/prestations';
 import { SeoRouteData } from './seo';
 
 export const routes: Routes = [
@@ -15,6 +17,17 @@ export const routes: Routes = [
         data: {
             description:
                 "Lead développeur freelance près de Rennes, 15+ ans d'expérience : conception, audit de performance et évolution de vos applications web et mobiles.",
+        } satisfies SeoRouteData,
+    },
+    {
+        path: 'prestations',
+        component: Prestations,
+        title: 'Développeur freelance à Rennes\u00a0: prestations – BeGooDev',
+        data: {
+            description:
+                "Développement web et mobile, audit de performance et lead technique\u00a0: un développeur freelance à Rennes pour vos applications Angular, Java et PHP.",
+            pageType: 'FAQPage',
+            faq,
         } satisfies SeoRouteData,
     },
     {
