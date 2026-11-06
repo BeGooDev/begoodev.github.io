@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
 import { company, getEmail, getPhoneHref, getGithubUrl, getLinkedInUrl, getMaltUrl } from './config';
 import { skills } from './data/skills';
+import { Faq, services } from './data/prestations';
 
 export const SITE_URL = 'https://begoodev.fr';
 const SITE_NAME = 'BeGooDev';
@@ -13,6 +14,8 @@ export interface SeoRouteData {
     description?: string;
     /** schema.org type of the page, e.g. 'ProfilePage' (defaults to 'WebPage') */
     pageType?: string;
+    /** Questions/réponses de la page, publiées en JSON-LD (FAQPage) */
+    faq?: Faq[];
     noindex?: boolean;
 }
 
@@ -67,6 +70,23 @@ const business = {
         { '@type': 'Country', name: 'France' },
     ],
     knowsLanguage: 'fr',
+    knowsAbout: skills.flatMap((group) => group.items),
+    hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Prestations de développement',
+        itemListElement: services.map((service) => ({
+            '@type': 'Offer',
+            itemOffered: {
+                '@type': 'Service',
+                '@id': `${SITE_URL}/prestations#${service.id}`,
+                name: service.name,
+                description: service.summary,
+                url: `${SITE_URL}/prestations#${service.id}`,
+                provider: { '@id': BUSINESS_ID },
+                areaServed: { '@type': 'Country', name: 'France' },
+            },
+        })),
+    },
     sameAs: [getMaltUrl(), getLinkedInUrl()],
 };
 
@@ -120,6 +140,13 @@ export class SeoTitleStrategy extends TitleStrategy {
             isPartOf: { '@id': WEBSITE_ID },
             about: { '@id': data.pageType === 'ProfilePage' ? PERSON_ID : BUSINESS_ID },
             ...(data.pageType === 'ProfilePage' && { mainEntity: { '@id': PERSON_ID } }),
+            ...(data.faq && {
+                mainEntity: data.faq.map((item) => ({
+                    '@type': 'Question',
+                    name: item.question,
+                    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+                })),
+            }),
         };
         this.setJsonLd(data.noindex ? undefined : { '@context': 'https://schema.org', '@graph': [business, person, website, page] });
     }

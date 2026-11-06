@@ -14,13 +14,13 @@ test.describe('<app-section-heading>', () => {
 
     test('n\'affiche pas de paragraphe vide sans sous-titre', async ({ page }) => {
         await gotoHydrated(page, '/');
-        const heading = page.locator('app-section-heading').filter({ hasText: 'Mes compétences' });
+        const heading = page.locator('app-section-heading').filter({ hasText: 'Mes prestations' });
         await expect(heading.locator('p')).toHaveCount(0);
     });
 
     test('est centré par défaut', async ({ page }) => {
         await gotoHydrated(page, '/');
-        const block = page.locator('app-section-heading').filter({ hasText: 'Mes compétences' }).locator('> div');
+        const block = page.locator('app-section-heading').filter({ hasText: 'Mes prestations' }).locator('> div');
         await expect(block).toHaveCSS('text-align', 'center');
     });
 

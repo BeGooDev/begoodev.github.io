@@ -54,6 +54,20 @@ test.describe('SEO du HTML statique', () => {
         expect(new Set(descriptions).size).toBe(pages.length);
     });
 
+    test('/prestations publie ses services et sa FAQ en JSON-LD', async ({ request }) => {
+        const html = await staticHtml(request, '/prestations');
+        const graph = JSON.parse(attr(html, /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)!)['@graph'];
+        const business = graph.find((node: { '@type': string }) => node['@type'] === 'ProfessionalService');
+        expect(business.hasOfferCatalog.itemListElement.length).toBeGreaterThan(0);
+
+        const page = graph.find((node: { '@type': string }) => node['@type'] === 'FAQPage');
+        expect(page.mainEntity.length).toBeGreaterThan(0);
+        // Every question of the JSON-LD must be visible on the page (Google's structured data guidelines)
+        for (const question of page.mainEntity) {
+            expect(html).toContain(question.name);
+        }
+    });
+
     test('og:image, robots.txt, sitemap.xml et llms.txt sont servis', async ({ request }) => {
         const html = await staticHtml(request, '/');
         const ogImage = attr(html, /<meta property="og:image" content="https:\/\/begoodev\.fr([^"]*)"/);

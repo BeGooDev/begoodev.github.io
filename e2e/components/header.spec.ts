@@ -18,6 +18,7 @@ test.describe('<app-header>', () => {
         });
 
         for (const { name, path } of [
+            { name: 'Prestations', path: '/prestations' },
             { name: 'Développement', path: '/development' },
             { name: 'Mon parcours', path: '/mon-cv' },
         ]) {
@@ -51,7 +52,7 @@ test.describe('<app-header>', () => {
             const closeButton = header.getByRole('button', { name: 'Fermer le menu' });
             await expect(closeButton).toHaveAttribute('aria-expanded', 'true');
             await expect(closeButton).toHaveAttribute('aria-controls', 'mobile-menu');
-            await expect(menu.getByRole('link')).toHaveCount(3);
+            await expect(menu.getByRole('link')).toHaveCount(4);
             await expect(menu.getByRole('link', { name: 'Me contacter' })).toBeVisible();
 
             await closeButton.click();

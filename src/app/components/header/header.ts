@@ -8,6 +8,7 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
+    { href: '/prestations', label: 'Prestations' },
     { href: '/development', label: 'Développement' },
     { href: '/mon-cv', label: 'Mon parcours' },
 ];
