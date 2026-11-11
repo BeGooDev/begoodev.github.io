@@ -35,6 +35,7 @@ test.describe('SEO du HTML statique', () => {
             expect(html).toContain('property="og:title"');
             expect(html).toContain('property="og:description"');
             expect(html).not.toContain('name="keywords"');
+            expect(html, 'grandes images autorisées (Discover)').toContain('<meta name="robots" content="max-image-preview:large">');
 
             expect(html.match(/<h1[\s>]/g), 'un seul h1').toHaveLength(1);
 

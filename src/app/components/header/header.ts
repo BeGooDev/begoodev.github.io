@@ -10,6 +10,7 @@ interface NavLink {
 const navLinks: NavLink[] = [
     { href: '/development', label: 'Développement' },
     { href: '/mon-cv', label: 'Mon parcours' },
+    { href: '/blog', label: 'Blog' },
 ];
 
 @Component({

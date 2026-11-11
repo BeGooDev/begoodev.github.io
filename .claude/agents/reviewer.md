@@ -19,7 +19,8 @@ aucun fichier.
   `src/app/app.routes.ts` ; résumé pour les IA dans `public/llms.txt`.
 - Icônes : composant `<app-icon name="…">` (SVG inline, `src/app/components/icon/`) — pas de
   Font Awesome.
-- Contenus (missions, stack, parcours) dans `src/app/data/` ; infos légales dans
+- Contenus (missions, stack, parcours) dans `src/app/data/`, articles du blog en Markdown dans
+  `content/articles/` (convertis au build par `scripts/articles.mjs`) ; infos légales dans
   `src/app/config.ts` (`company`).
 - Tests : `pnpm build && pnpm sitemap && pnpm test:e2e` (Playwright + axe-core, desktop et
   mobile, contrôles SEO du HTML statique, tests par composant dans `e2e/components/`, un fichier

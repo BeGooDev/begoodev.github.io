@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
 import { company, getEmail, getPhoneHref, getGithubUrl, getLinkedInUrl, getMaltUrl } from './config';
 import { skills } from './data/skills';
+import { Article, articleImage, articleImageSizes } from './data/articles';
 
 export const SITE_URL = 'https://begoodev.fr';
 const SITE_NAME = 'BeGooDev';
@@ -14,6 +15,8 @@ export interface SeoRouteData {
     /** schema.org type of the page, e.g. 'ProfilePage' (defaults to 'WebPage') */
     pageType?: string;
     noindex?: boolean;
+    /** Set (via a resolver) on blog article pages */
+    article?: Article;
 }
 
 const BUSINESS_ID = `${SITE_URL}/#business`;
@@ -102,10 +105,20 @@ export class SeoTitleStrategy extends TitleStrategy {
 
         this.title.setTitle(title);
         this.setMeta('name', 'description', data.description);
-        this.setMeta('name', 'robots', data.noindex ? 'noindex' : undefined);
+        // max-image-preview:large lets Google show large images (required for Discover)
+        this.setMeta('name', 'robots', data.noindex ? 'noindex' : 'max-image-preview:large');
         this.setMeta('property', 'og:title', title);
         this.setMeta('property', 'og:description', data.description);
         this.setMeta('property', 'og:url', data.noindex ? undefined : url);
+        this.setMeta('property', 'og:type', data.article ? 'article' : 'website');
+        // Set on every page so a client-side navigation away from an article restores the site image
+        const [wide] = articleImageSizes;
+        const image = data.article ? SITE_URL + articleImage(data.article) : OG_IMAGE;
+        this.setMeta('property', 'og:image', image);
+        this.setMeta('property', 'og:image:width', data.article ? String(wide.width) : '2400');
+        this.setMeta('property', 'og:image:height', data.article ? String(wide.height) : '1260');
+        this.setMeta('property', 'og:image:alt', data.article ? data.article.title : 'BeGooDev, lead développeur freelance à Rennes');
+        this.setMeta('name', 'twitter:image', image);
         this.setMeta('name', 'twitter:title', title);
         this.setMeta('name', 'twitter:description', data.description);
         this.setCanonical(data.noindex ? undefined : url);
@@ -121,7 +134,23 @@ export class SeoTitleStrategy extends TitleStrategy {
             about: { '@id': data.pageType === 'ProfilePage' ? PERSON_ID : BUSINESS_ID },
             ...(data.pageType === 'ProfilePage' && { mainEntity: { '@id': PERSON_ID } }),
         };
-        this.setJsonLd(data.noindex ? undefined : { '@context': 'https://schema.org', '@graph': [business, person, website, page] });
+        const article = data.article && {
+            '@type': 'BlogPosting',
+            '@id': `${url}#article`,
+            headline: data.article.title,
+            description: data.description,
+            articleSection: data.article.category,
+            datePublished: data.article.date,
+            dateModified: data.article.date,
+            inLanguage: 'fr-FR',
+            image: articleImageSizes.map(({ ratio }) => SITE_URL + articleImage(data.article!, ratio)),
+            author: { '@id': PERSON_ID },
+            publisher: { '@id': BUSINESS_ID },
+            mainEntityOfPage: { '@id': page['@id'] },
+            isPartOf: { '@id': `${SITE_URL}/blog#webpage` },
+        };
+        const graph = [business, person, website, page, ...(article ? [article] : [])];
+        this.setJsonLd(data.noindex ? undefined : { '@context': 'https://schema.org', '@graph': graph });
     }
 
     private setMeta(attr: 'name' | 'property', key: string, content: string | undefined) {

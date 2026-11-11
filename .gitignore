@@ -11,6 +11,7 @@
 /playwright-report/
 
 # angular
+/src/app/data/articles.generated.ts
 /dist/
 /.angular/
 
